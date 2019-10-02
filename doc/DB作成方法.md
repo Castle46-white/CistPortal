@@ -6,7 +6,7 @@
 1. コマンドプロンプト or ターミナル を開く
 1. ` createdb -U [role_name] CistPortal `  を実行  
 1. ` psql -U [role_name]  CistPortal` を実行
-1. ` create role postgres rogin password 'postgres'; ` を実行  
+1. ` create role postgres login password 'postgres'; ` を実行  
 すでにpostgresというロールを作成済みの人は4.で失敗しますが気にしなくて良いです。
 1. ` exit ` または ` \q ` でデータベースから抜ける
 
