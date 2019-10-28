@@ -3,7 +3,8 @@ create table user_account (
   last_name varchar(32),
   first_name varchar(32),
   grade varchar(2),
-  role smallint
+  role_id smallint,
+  foreign key (role_id) references roles (id)
 );
 
 create table user_pass (
@@ -56,4 +57,9 @@ create table message_target (
   foreign key (user_id) references user_account (id),
   foreign key (message_id) references message (id),
   primary key (user_id,message_id)
+);
+
+create table roles (
+  id smallserial primary key ,
+  role_name varchar(16)
 );
