@@ -1,3 +1,8 @@
+create table roles (
+  id smallserial primary key ,
+  role_name varchar(16)
+);
+
 create table user_account (
   id varchar(8) primary key ,
   last_name varchar(32),
@@ -59,7 +64,3 @@ create table message_target (
   primary key (user_id,message_id)
 );
 
-create table roles (
-  id smallserial primary key ,
-  role_name varchar(16)
-);
