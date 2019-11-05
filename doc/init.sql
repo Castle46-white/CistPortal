@@ -63,4 +63,3 @@ create table message_target (
   foreign key (message_id) references message (id),
   primary key (user_id,message_id)
 );
-
