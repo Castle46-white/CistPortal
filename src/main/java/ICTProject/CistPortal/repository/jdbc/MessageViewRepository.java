@@ -28,7 +28,7 @@ public class MessageViewRepository implements IMessageViewRepository {
                 new BeanPropertyRowMapper<>(MessageView.class),
                 new Object[]{}
         );
-
+        //System.out.println(messageViewList.get(0).getId());
         return messageViewList;
     }
 
@@ -39,7 +39,7 @@ public class MessageViewRepository implements IMessageViewRepository {
         var messageViewDetail = jdbcTemplate.query(sql,
                 new BeanPropertyRowMapper<>(MessageView.class),
                 messageId);
-        System.out.println(messageViewDetail.get(0).getMessageId());
+        //System.out.println(messageViewDetail.get(0).getId());
 
         return messageViewDetail;
     }

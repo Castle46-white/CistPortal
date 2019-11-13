@@ -14,6 +14,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.wicketstuff.annotation.mount.MountPath;
 import org.apache.wicket.markup.html.basic.Label;
 import java.awt.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @MountPath("MessageViewList")
@@ -32,18 +33,28 @@ public class MessageViewListPage extends WebPage {
                 IModel<MessageView> itemModel = listItem.getModel();
                 MessageView messageView = itemModel.getObject();
 
-                IModel<Integer> idModel = Model.of(messageView.getMessageId());
-                Label idLabel = new Label("id",idModel);
-                listItem.add(idLabel);
+//                IModel<Integer> idModel = Model.of(messageView.getId());
+//                Label idLabel = new Label("id",idModel);
+//                listItem.add(idLabel);
 
                 IModel<String> titleModel = Model.of(messageView.getTitle());
                 Label titleLabel = new Label("title",titleModel);
                 listItem.add(titleLabel);
 
+                IModel<LocalDateTime> deadLineModel = Model.of(messageView.getDeadLine());
+                Label deadlineLabel = new Label("deadLine",deadLineModel);
+                listItem.add(deadlineLabel);
+
+                IModel<LocalDateTime> updateDateModel = Model.of(messageView.getUpdateDate());
+                Label updateDateLabel = new Label("updateDate",updateDateModel);
+                listItem.add(updateDateLabel);
+
                 var label = new Link<>("toMessageViewDetail"){
                     @Override
                     public void onClick(){
-                        setResponsePage(new MessageViewDetail(1));
+                        setResponsePage(new MessageViewDetail(messageView.getId()));
+                        //setResponsePage(new MessageViewDetail(2));
+                        //System.out.println(messageView.getMessageId());
                     }
                 };
                 listItem.add(label);

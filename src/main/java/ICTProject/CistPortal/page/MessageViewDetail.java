@@ -3,6 +3,8 @@ package ICTProject.CistPortal.page;
 import ICTProject.CistPortal.model.MessageView;
 import ICTProject.CistPortal.service.IMessageViewService;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 //import org.apache.wicket.request.mapper.parameter.PageParameters;
@@ -30,6 +32,17 @@ public class MessageViewDetail extends WebPage {
 
         Label messageViewContents = new Label("message", messageViewIModel.getObject().getContents());
         add(messageViewContents);
+
+        Label messageViewDeadLine = new Label("deadLine", messageViewIModel.getObject().getDeadLine());
+        add(messageViewDeadLine);
+
+        Label messageViewUpdatedate = new Label("updateDate", messageViewIModel.getObject().getUpdateDate());
+        add(messageViewUpdatedate);
+
+        Link<Void> toMessageViewListPage = new BookmarkablePageLink<>("toMessageViewListPage", MessageViewListPage.class);
+        add(toMessageViewListPage);
+
+
     }
 
 //    private MessageView messageView;

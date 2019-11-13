@@ -6,7 +6,8 @@
 </head>
 <body>
 <h1>連絡詳細</h1>
-<table>
+<button><a href="https://twitter.com/masaakusu">ヒミツのボタン</a></button>
+<table border="1" width="100%">
     <tr>
         <th>タイトル</th>
         <td><span wicket:id="title">タイトル</span></td>
@@ -15,6 +16,17 @@
         <th>内容</th>
         <td><span wicket:id="message">内容</span></td>
     </tr>
+    <tr>
+        <th>掲示期限</th>
+        <td><span wicket:id="deadLine">掲示期限</span></td>
+    </tr>
+    <tr>
+        <th>更新日時</th>
+        <td><span wicket:id="updateDate">更新日時</span></td>
+    </tr>
 </table>
+<button><a href="#" wicket:id="toMessageViewListPage">一覧に戻る</a></button>
+
+
 </body>
 </html>
