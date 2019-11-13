@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+    <meta charset="UTF-8">
+    <title>連絡作成</title>
+</head>
+<body>
+<form action="#" wicket:id="massageForm"　id="messageForm">
+    <wicket:enclosure child="msg">
+        <div wicket:id="msg" color="red">バリデーションの有無と理由</div>
+    </wicket:enclosure>
+    <div>タイトル：<input type="text" wicket:id="messageTitle"/></div>
+    <div>内容<br><textarea wicket:id="messageContents"></textarea></div>
+    <div>掲示期限：<input type="text" wicket:id="questionnaireStartDate"/></div>
+    <div>
+        <button onclick="history.back()">戻る</button><button type="submit">次へ</button>
+    </div>
+</form>
+
+</body>
+</html>
