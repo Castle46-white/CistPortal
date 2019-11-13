@@ -29,3 +29,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### h2用の設定 ###
+.properties
+.xml
