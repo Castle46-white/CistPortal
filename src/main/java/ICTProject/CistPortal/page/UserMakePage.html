@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザ作成ページ</title>
+</head>
+<body>
+<h1>ユーザ作成</h1>
+<form action="#" wicket:id="userInfo">
+    <div>ユーザid : <input type="text" wicket:id="userId"/></div>
+    <div>姓 : <input type="text" wicket:id="lastName"/></div>
+    <div>名 : <input type="text" wicket:id="firstName"/></div>
+    <div>学年 : <input type="text" wicket:id="grade"/></div>
+    <div>権限 : <select wicket:id="role">
+        <option value=0>管理者</option>
+        <option value=1>教員</option>
+        <option value=2>学生</option>
+    </select></div>
+    <div>パスワード : <input type="password" wicket:id="userPass"/></div>
+    <div><button type="submit">作成</button> </div>
+</form>
+<h2>ファイルを読み込む</h2>
+<form action="#" wicket:id="userInfoFile">
+    <div><input type="file" wicket:id="file"/></div>
+    <div><button type="submitFile">送信</button> </div>
+</form>
+</body>
+</html>
