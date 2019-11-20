@@ -26,10 +26,18 @@ public class AuthUserRepository implements IAuthUserRepository {
 
     @Override
     public void insert(String userId,String lastName,String firstName,String grade,int role,String userPass) {
-        String sql = "insert into user_account values (?,?,?,?,?)";
+        String sql = "BEGIN ; insert into user_account values (?,?,?,?,?)";
         jdbc.update(sql,userId,lastName,firstName,grade,role);
-        String pass = "insert into user_pass values (?,crypt(?, gen_salt('bf')))";
+        String pass = "insert into user_pass values (?,crypt(?, gen_salt('bf'))) COMMIT ;";
         jdbc.update(pass,userId,userPass);
+    }
+
+    @Override
+    public boolean exists(String userId) {
+        String sql = "select true from  user_account Where id = ?";
+        List<Boolean> booles = jdbc.query(sql,new SingleColumnRowMapper(Boolean.class),new Object[]{userId});
+
+        return !booles.isEmpty();
     }
 
     @Override

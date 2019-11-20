@@ -23,6 +23,14 @@ public interface IAuthUserRepository {
     public void insert(String userId,String lastName,String firstName,String grade,int role,String userPass);
 
     /**
+     * ユーザ名が一致するレコードがAuthUserテーブルにあるか検索する
+     *
+     * @param userId ユーザーId
+     * @return レコードの有無, 存在すれば<code>true</code>, それ以外は <code>false</code>
+     */
+    public boolean exists(String userId);
+
+    /**
      * ユーザ名とパスワードが一致するレコードがAuthUserテーブルにあるか検索する
      *
      * @param userId ユーザーId

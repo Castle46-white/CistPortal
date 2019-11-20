@@ -1,13 +1,18 @@
 package ICTProject.CistPortal.page;
 
+import ICTProject.CistPortal.Service.ICsvToStringsService;
 import ICTProject.CistPortal.Service.IUserService;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.*;
+import org.apache.wicket.markup.html.form.upload.FileUpload;
+import org.apache.wicket.markup.html.form.upload.FileUploadField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.wicketstuff.annotation.mount.MountPath;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +21,9 @@ public class UserMakePage extends WebPage {
     @SpringBean
     private IUserService userService;
 
+    @SpringBean
+    private ICsvToStringsService csvToStringsService;
+
     public UserMakePage() {
         IModel<String> userIdModel = Model.of("");
         IModel<String> lastNameModel = Model.of("");
@@ -23,14 +31,18 @@ public class UserMakePage extends WebPage {
         IModel<String> gradeModel = Model.of("");
         IModel<String> roleModel = Model.of();
         IModel<String> userPassModel = Model.of("");
+        IModel<List<FileUpload>> fileModel = Model.ofList(new ArrayList<>());
         List<String> list = new ArrayList<>();
         list.add("ADMIN");
         list.add("TEACHER");
         list.add("STUDENT");
 
-        Form<Void> userInfoForm = new Form<>("userInfo") {
+
+        Form<Void> userInfoForm = new Form<>("userInfo");
+        add(userInfoForm);
+        userInfoForm.add(new Button("button1") {
             @Override
-            protected void onSubmit() {
+            public void onSubmit() {
                 String userId = userIdModel.getObject();
                 String lastName = lastNameModel.getObject();
                 String firstName = firstNameModel.getObject();
@@ -39,27 +51,26 @@ public class UserMakePage extends WebPage {
                 int role = userService.convRoleId(roleName);
                 String userPass = userPassModel.getObject();
                 String msg = "送信データ:"
-                    + userId
-                    + ","
-                    + lastName
-                    + ","
-                    + firstName
-                    + ","
-                    + grade
-                    + ","
-                    + role
-                    + ","
-                    + userPass;
+                        + userId
+                        + ","
+                        + lastName
+                        + ","
+                        + firstName
+                        + ","
+                        + grade
+                        + ","
+                        + role
+                        + ","
+                        + userPass;
                 System.out.println(msg);
                 userService.registerUser(userId,lastName,firstName,grade,role,userPass);
                 setResponsePage(new UserMakedPage(userIdModel,
-                                                  lastNameModel,
-                                                  firstNameModel,
-                                                  gradeModel,
-                                                  roleModel));
+                        lastNameModel,
+                        firstNameModel,
+                        gradeModel,
+                        roleModel));
             }
-        };
-        add(userInfoForm);
+        });
 
         TextField<String> userIdField = new TextField<>("userId",userIdModel);
         userInfoForm.add(userIdField);
@@ -78,5 +89,31 @@ public class UserMakePage extends WebPage {
 
         PasswordTextField userPassField = new PasswordTextField("userPass",userPassModel);
         userInfoForm.add(userPassField);
+
+        FileUploadField fileField = new FileUploadField("file",fileModel);
+
+        Form<Void> userInfoFile = new Form<>("userInfoFile");
+        add(userInfoFile);
+        userInfoFile.setMultiPart(true);
+        userInfoFile.add(new Button("button2") {
+            @Override
+            public void onSubmit() {
+                var file = fileField.getFileUpload();
+                try {
+                    var lines = csvToStringsService.convert(file,Charset.forName("UTF-8"));
+                    if(userService.registerUser(lines)) {
+                        System.out.println("csvを登録しました。");
+                        error("全件正常に登録できました。");
+                    } else {
+                        error("正常に登録できませんでした。");
+                    }
+                } catch (IOException e) {
+                    error(e.getMessage());
+                }
+                setResponsePage(new UserMakedFilePage());
+            }
+        });
+
+        userInfoFile.add(fileField);
     }
 }

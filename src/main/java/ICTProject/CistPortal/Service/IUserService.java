@@ -1,5 +1,7 @@
 package ICTProject.CistPortal.Service;
 
+import java.util.List;
+
 public interface IUserService {
 
     /**
@@ -19,6 +21,11 @@ public interface IUserService {
      * @param userPass パスワード
      */
     public void registerUser(String userId,String lastName,String firstName,String grade,int role,String userPass);
+
+    /**
+     * @param lines csvのデータ
+     */
+    public boolean registerUser(List<String> lines);
 
     /**
      * ユーザ名とパスワードをデータベースに照合する
