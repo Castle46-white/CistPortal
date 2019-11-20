@@ -4,6 +4,7 @@ package ICTProject.CistPortal.bean;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 @Setter
@@ -12,6 +13,6 @@ public class Message {
     private long id;
     private String title;
     private String contents;
-    private LocalDateTime deadline;
+    private Timestamp deadline;
 
 }
