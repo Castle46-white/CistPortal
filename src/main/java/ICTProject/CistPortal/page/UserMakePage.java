@@ -1,11 +1,16 @@
 package ICTProject.CistPortal.page;
 
+import ICTProject.CistPortal.MyRole;
+import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.Service.ICsvToStringsService;
 import ICTProject.CistPortal.Service.IUserService;
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.*;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.markup.html.form.upload.FileUploadField;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -16,6 +21,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+@AuthorizeInstantiation("ADMIN")
 @MountPath("UserMake")
 public class UserMakePage extends WebPage {
     @SpringBean
@@ -36,7 +42,6 @@ public class UserMakePage extends WebPage {
         list.add("ADMIN");
         list.add("TEACHER");
         list.add("STUDENT");
-
 
         Form<Void> userInfoForm = new Form<>("userInfo");
         add(userInfoForm);
@@ -115,5 +120,8 @@ public class UserMakePage extends WebPage {
         });
 
         userInfoFile.add(fileField);
+
+        Link<Void> toHomeLink = new BookmarkablePageLink<Void>("toHome",HomePage.class);
+        add(toHomeLink);
     }
 }

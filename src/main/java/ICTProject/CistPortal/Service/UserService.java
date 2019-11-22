@@ -1,6 +1,7 @@
 package ICTProject.CistPortal.Service;
 
 import ICTProject.CistPortal.Repository.IAuthUserRepository;
+import ICTProject.CistPortal.bean.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,10 +54,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public boolean existsUser(String userId,String userPass) {
-        String role;
-        boolean result = authUserRepository.exists(userId,userPass);
-        System.out.println(userId + " , " + userPass + " のユーザ照合結果：" + result);
+    public UserAccount signInUser(String userId, String userPass) {
+        UserAccount result = authUserRepository.signIn(userId,userPass);
         return result;
     }
 }

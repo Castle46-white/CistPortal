@@ -1,7 +1,9 @@
 package ICTProject.CistPortal.Repository;
 
+import ICTProject.CistPortal.bean.UserAccount;
 import org.apache.wicket.markup.html.link.Link;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SingleColumnRowMapper;
 import org.springframework.stereotype.Repository;
@@ -40,11 +42,10 @@ public class AuthUserRepository implements IAuthUserRepository {
         return !booles.isEmpty();
     }
 
-    @Override
-    public boolean exists(String userId,String userPass) {
-        String sql = "select true from  user_account inner join user_pass on user_account.id = user_pass.user_id Where id = ? and password = crypt(?, password)";
-        List<Boolean> booles = jdbc.query(sql,new SingleColumnRowMapper(Boolean.class),new Object[]{userId,userPass});
+    public UserAccount signIn(String userId, String userPass) {
+        String sql = "select id , last_name , first_name ,grade , role_id from  user_account inner join user_pass on user_account.id = user_pass.user_id Where id = ? and password = crypt(?, password)";
+        List<UserAccount> userAccount = jdbc.query(sql, new BeanPropertyRowMapper<>(UserAccount.class),new Object[]{userId,userPass});
 
-        return !booles.isEmpty();
+        return userAccount.get(0);
     }
 }

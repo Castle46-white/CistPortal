@@ -2,6 +2,7 @@ package ICTProject.CistPortal.page;
 
 import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.Service.IUserService;
+import ICTProject.CistPortal.bean.UserAccount;
 import com.giffing.wicket.spring.boot.context.scan.WicketSignInPage;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
@@ -27,10 +28,13 @@ public class SignPage extends WebPage {
             protected void onSubmit() {
                 String userId = userIdModel.getObject();
                 String userPass = userPassModel.getObject();
-                if (service.existsUser(userId,userPass)) {
-                    MySession.get().sign(userId);
+                UserAccount userAccount = service.signInUser(userId,userPass);
+                MySession.get().sign(userAccount);
+                if (MySession.get().isSignedIn()) {
+                    setResponsePage(new HomePage());
+                }else {
+                    error("IDもしくはパスワードが間違っています。");
                 }
-                setResponsePage(new HomePage());
             }
         };
         add(userInfoForm);

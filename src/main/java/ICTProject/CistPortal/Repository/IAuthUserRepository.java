@@ -1,5 +1,7 @@
 package ICTProject.CistPortal.Repository;
 
+import ICTProject.CistPortal.bean.UserAccount;
+
 public interface IAuthUserRepository {
 
     /**
@@ -37,6 +39,6 @@ public interface IAuthUserRepository {
      * @param userPass パスワード
      * @return レコードの有無, 存在すれば<code>true</code>, それ以外は <code>false</code>
      */
-    public boolean exists(String userId, String userPass);
+    public UserAccount signIn(String userId, String userPass);
 
 }

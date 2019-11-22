@@ -1,5 +1,7 @@
 package ICTProject.CistPortal.Service;
 
+import ICTProject.CistPortal.bean.UserAccount;
+
 import java.util.List;
 
 public interface IUserService {
@@ -34,5 +36,5 @@ public interface IUserService {
      * @param userPass パスワード
      * @return 照合成功であれば<code>true</code>, 照合失敗は<code>false</code>
      */
-    public boolean existsUser(String userId,String userPass);
+    public UserAccount signInUser(String userId, String userPass);
 }
