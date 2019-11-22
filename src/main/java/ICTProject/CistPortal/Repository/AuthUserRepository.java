@@ -30,7 +30,7 @@ public class AuthUserRepository implements IAuthUserRepository {
     public void insert(String userId,String lastName,String firstName,String grade,int role,String userPass) {
         String sql = "BEGIN ; insert into user_account values (?,?,?,?,?)";
         jdbc.update(sql,userId,lastName,firstName,grade,role);
-        String pass = "insert into user_pass values (?,crypt(?, gen_salt('bf'))) COMMIT ;";
+        String pass = "insert into user_pass values (?,crypt(?, gen_salt('bf'))); COMMIT ;";
         jdbc.update(pass,userId,userPass);
     }
 
