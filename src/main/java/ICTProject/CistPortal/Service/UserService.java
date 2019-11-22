@@ -29,6 +29,7 @@ public class UserService implements IUserService {
 
     @Override
     public boolean registerUser(List<String> lines) {
+        // 空行の削除
         lines.removeIf(String::isEmpty);
 
         for (var line : lines) {

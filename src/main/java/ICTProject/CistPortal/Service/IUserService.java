@@ -25,7 +25,7 @@ public interface IUserService {
     public void registerUser(String userId,String lastName,String firstName,String grade,int role,String userPass);
 
     /**
-     * @param lines csvのデータ
+     * @param lines アップロードされたファイルの1行分のデータ
      */
     public boolean registerUser(List<String> lines);
 
@@ -34,7 +34,7 @@ public interface IUserService {
      *
      * @param userId ユーザーId
      * @param userPass パスワード
-     * @return 照合成功であれば<code>true</code>, 照合失敗は<code>false</code>
+     * @return サインインの際、idとpasswordが一致すればuser_accountの情報を返す
      */
     public UserAccount signInUser(String userId, String userPass);
 }

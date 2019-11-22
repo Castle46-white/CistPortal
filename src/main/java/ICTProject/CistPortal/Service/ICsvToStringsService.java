@@ -9,8 +9,8 @@ import java.util.List;
 public interface ICsvToStringsService {
     /**
      *
-     * @param file
-     * @param charset
+     * @param file アップロードされたファイル
+     * @param charset 文字の読込形式(UTF-8)
      * @return
      * @throws IOException
      */

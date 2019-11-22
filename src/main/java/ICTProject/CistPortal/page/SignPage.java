@@ -23,6 +23,7 @@ public class SignPage extends WebPage {
         IModel<String> userIdModel = Model.of("");
         IModel<String> userPassModel = Model.of("");
 
+        // サインイン用のフォーム
         Form<Void> userInfoForm = new Form<Void>("userInfo") {
             @Override
             protected void onSubmit() {

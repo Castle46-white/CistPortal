@@ -14,6 +14,7 @@ import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.validation.validator.StringValidator;
 import org.wicketstuff.annotation.mount.MountPath;
 
 import java.io.IOException;
@@ -43,6 +44,7 @@ public class UserMakePage extends WebPage {
         list.add("TEACHER");
         list.add("STUDENT");
 
+        //　手入力用のフォーム
         Form<Void> userInfoForm = new Form<>("userInfo");
         add(userInfoForm);
         userInfoForm.add(new Button("button1") {
@@ -77,26 +79,57 @@ public class UserMakePage extends WebPage {
             }
         });
 
-        TextField<String> userIdField = new TextField<>("userId",userIdModel);
+        TextField<String> userIdField = new TextField<>("userId",userIdModel) {
+            @Override
+            protected void onInitialize() {
+                super.onInitialize();
+                add(StringValidator.lengthBetween(8, 8));
+            }
+        };
         userInfoForm.add(userIdField);
 
-        TextField<String> lastNameField = new TextField<>("lastName",lastNameModel);
+        TextField<String> lastNameField = new TextField<>("lastName",lastNameModel) {
+            @Override
+            protected void onInitialize() {
+                super.onInitialize();
+                add(StringValidator.lengthBetween(1, 32));
+            }
+        };
         userInfoForm.add(lastNameField);
 
-        TextField<String> firstNameField = new TextField<>("firstName",firstNameModel);
+        TextField<String> firstNameField = new TextField<>("firstName",firstNameModel) {
+            @Override
+            protected void onInitialize() {
+                super.onInitialize();
+                add(StringValidator.lengthBetween(1, 32));
+            }
+        };
         userInfoForm.add(firstNameField);
 
-        TextField<String> gradeField = new TextField<>("grade",gradeModel);
+        TextField<String> gradeField = new TextField<>("grade",gradeModel) {
+            @Override
+            protected void onInitialize() {
+                super.onInitialize();
+                add(StringValidator.lengthBetween(2, 2));
+            }
+        };
         userInfoForm.add(gradeField);
 
         DropDownChoice<String> roleField = new DropDownChoice<String>("role",roleModel,list);
         userInfoForm.add(roleField);
 
-        PasswordTextField userPassField = new PasswordTextField("userPass",userPassModel);
+        PasswordTextField userPassField = new PasswordTextField("userPass",userPassModel) {
+            @Override
+            protected void onInitialize() {
+                super.onInitialize();
+                add(StringValidator.lengthBetween(6,32));
+            }
+        };
         userInfoForm.add(userPassField);
 
         FileUploadField fileField = new FileUploadField("file",fileModel);
 
+        // ファイルアップロード用のフォーム
         Form<Void> userInfoFile = new Form<>("userInfoFile");
         add(userInfoFile);
         userInfoFile.setMultiPart(true);
