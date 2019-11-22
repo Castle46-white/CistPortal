@@ -38,7 +38,7 @@
 |contents|メッセージ内容|
 |deadline|掲載期限|
 |update_date|更新日時|
-|user_id|掲載者|主キー|
+|user_id|掲載者(個人ID)|外部キー|
 
 >## message_target
 掲示を表示する対象を保存するテーブル
