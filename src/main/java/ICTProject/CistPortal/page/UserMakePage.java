@@ -1,7 +1,5 @@
 package ICTProject.CistPortal.page;
 
-import ICTProject.CistPortal.MyRole;
-import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.Service.ICsvToStringsService;
 import ICTProject.CistPortal.Service.IUserService;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;

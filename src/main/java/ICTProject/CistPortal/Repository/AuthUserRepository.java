@@ -1,7 +1,6 @@
 package ICTProject.CistPortal.Repository;
 
 import ICTProject.CistPortal.bean.UserAccount;
-import org.apache.wicket.markup.html.link.Link;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
