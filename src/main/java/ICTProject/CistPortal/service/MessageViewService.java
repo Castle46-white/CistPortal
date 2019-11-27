@@ -5,6 +5,7 @@ import ICTProject.CistPortal.repository.IMessageViewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -18,8 +19,8 @@ public class MessageViewService implements IMessageViewService{
     }
 
     @Override
-    public List<MessageView> selectMany() {
-        List<MessageView> messageViewList = iMessageViewRepository.selectMany();
+    public List<MessageView> selectMany(String userId, Timestamp dateTime) {
+        List<MessageView> messageViewList = iMessageViewRepository.selectMany(userId,dateTime);
         return messageViewList;
     }
 
@@ -28,6 +29,8 @@ public class MessageViewService implements IMessageViewService{
         var messageViewDetail = iMessageViewRepository.selectOne(messageId);
         return messageViewDetail.get(0);
     }
+
+
 
 
 }

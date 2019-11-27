@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SingleColumnRowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Repository
@@ -21,14 +22,16 @@ public class MessageViewRepository implements IMessageViewRepository {
     }
 
     @Override
-    public List<MessageView> selectMany() {
-        var sql = "select * from message";
+    public List<MessageView> selectMany(String userId, Timestamp dateTime) {
+        var sql = "select id,title,update_date,deadline from message_target " +
+                "inner join message on message_target.message_id = message.id " +
+                "where message_target.user_id = ? and deadline >= ?";
 
         var messageViewList = jdbcTemplate.query(sql,
                 new BeanPropertyRowMapper<>(MessageView.class),
-                new Object[]{}
+                new Object[]{userId,dateTime}
         );
-        //System.out.println(messageViewList.get(0).getId());
+
         return messageViewList;
     }
 
@@ -39,8 +42,8 @@ public class MessageViewRepository implements IMessageViewRepository {
         var messageViewDetail = jdbcTemplate.query(sql,
                 new BeanPropertyRowMapper<>(MessageView.class),
                 messageId);
-        //System.out.println(messageViewDetail.get(0).getId());
 
         return messageViewDetail;
     }
+
 }

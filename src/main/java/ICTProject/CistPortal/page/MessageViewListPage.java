@@ -13,7 +13,8 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.wicketstuff.annotation.mount.MountPath;
 import org.apache.wicket.markup.html.basic.Label;
-import java.awt.*;
+
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,7 +26,9 @@ public class MessageViewListPage extends WebPage {
 
     public MessageViewListPage(){
 
-        IModel<List<MessageView>> messageViewModel = Model.ofList(iMessageViewService.selectMany());
+        Timestamp dateTime = Timestamp.valueOf(LocalDateTime.now());
+
+        IModel<List<MessageView>> messageViewModel = Model.ofList(iMessageViewService.selectMany("b2171530", dateTime));
 
         ListView<MessageView> MessageViewLV = new ListView<MessageView>("MessageView",messageViewModel) {
             @Override
@@ -33,31 +36,25 @@ public class MessageViewListPage extends WebPage {
                 IModel<MessageView> itemModel = listItem.getModel();
                 MessageView messageView = itemModel.getObject();
 
-//                IModel<Integer> idModel = Model.of(messageView.getId());
-//                Label idLabel = new Label("id",idModel);
-//                listItem.add(idLabel);
+                    IModel<String> titleModel = Model.of(messageView.getTitle());
+                    Label titleLabel = new Label("title", titleModel);
+                    listItem.add(titleLabel);
 
-                IModel<String> titleModel = Model.of(messageView.getTitle());
-                Label titleLabel = new Label("title",titleModel);
-                listItem.add(titleLabel);
+                    IModel<LocalDateTime> deadLineModel = Model.of(messageView.getDeadLine());
+                    Label deadlineLabel = new Label("deadLine", deadLineModel);
+                    listItem.add(deadlineLabel);
 
-                IModel<LocalDateTime> deadLineModel = Model.of(messageView.getDeadLine());
-                Label deadlineLabel = new Label("deadLine",deadLineModel);
-                listItem.add(deadlineLabel);
+                    IModel<LocalDateTime> updateDateModel = Model.of(messageView.getUpdateDate());
+                    Label updateDateLabel = new Label("updateDate", updateDateModel);
+                    listItem.add(updateDateLabel);
 
-                IModel<LocalDateTime> updateDateModel = Model.of(messageView.getUpdateDate());
-                Label updateDateLabel = new Label("updateDate",updateDateModel);
-                listItem.add(updateDateLabel);
-
-                var label = new Link<>("toMessageViewDetail"){
-                    @Override
-                    public void onClick(){
-                        setResponsePage(new MessageViewDetail(messageView.getId()));
-                        //setResponsePage(new MessageViewDetail(2));
-                        //System.out.println(messageView.getMessageId());
-                    }
-                };
-                listItem.add(label);
+                    var label = new Link<>("toMessageViewDetail") {
+                        @Override
+                        public void onClick() {
+                            setResponsePage(new MessageViewDetail(messageView.getId()));
+                        }
+                    };
+                    listItem.add(label);
 
             }
         };

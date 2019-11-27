@@ -2,12 +2,15 @@ package ICTProject.CistPortal.repository;
 
 import ICTProject.CistPortal.model.MessageView;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public interface IMessageViewRepository {
-    public List<MessageView> selectMany();
+    public List<MessageView> selectMany(String userId, Timestamp dateTime);
 
     public List<MessageView> selectOne(int id);
+
+
 }
 
 
