@@ -25,12 +25,20 @@ public class MessageViewService implements IMessageViewService{
     }
 
     @Override
+    public List<MessageView> alreadyReadSelectMany(String userId) {
+        List<MessageView> messageViewList = iMessageViewRepository.alreadyReadSelectMany(userId);
+        return messageViewList;
+    }
+
+    @Override
     public MessageView selectOne(int messageId) {
         var messageViewDetail = iMessageViewRepository.selectOne(messageId);
         return messageViewDetail.get(0);
     }
 
-
-
-
+    @Override
+    public int insertOne(int id,String userId) {
+        var result = iMessageViewRepository.insertOne(id,userId);
+        return result;
+    }
 }

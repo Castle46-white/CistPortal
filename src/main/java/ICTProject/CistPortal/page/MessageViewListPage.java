@@ -51,7 +51,7 @@ public class MessageViewListPage extends WebPage {
                     var label = new Link<>("toMessageViewDetail") {
                         @Override
                         public void onClick() {
-                            setResponsePage(new MessageViewDetail(messageView.getId()));
+                            setResponsePage(new MessageViewDetail(messageView.getId(),messageView.getUserId()));
                         }
                     };
                     listItem.add(label);

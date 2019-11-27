@@ -25,7 +25,8 @@ public class MessageViewDetail extends WebPage {
 
     }
 
-    MessageViewDetail(int id){
+    MessageViewDetail(int id,String userId){
+        int result = iMessageViewService.insertOne(id,userId);
         IModel<MessageView> messageViewIModel = Model.of(iMessageViewService.selectOne(id));
         Label messageViewTitle = new Label("title", messageViewIModel.getObject().getTitle());
         add(messageViewTitle);
@@ -43,6 +44,24 @@ public class MessageViewDetail extends WebPage {
         add(toMessageViewListPage);
 
 
+    }
+
+    MessageViewDetail(int id){
+        IModel<MessageView> messageViewIModel = Model.of(iMessageViewService.selectOne(id));
+        Label messageViewTitle = new Label("title", messageViewIModel.getObject().getTitle());
+        add(messageViewTitle);
+
+        Label messageViewContents = new Label("message", messageViewIModel.getObject().getContents());
+        add(messageViewContents);
+
+        Label messageViewDeadLine = new Label("deadLine", messageViewIModel.getObject().getDeadLine());
+        add(messageViewDeadLine);
+
+        Label messageViewUpdatedate = new Label("updateDate", messageViewIModel.getObject().getUpdateDate());
+        add(messageViewUpdatedate);
+
+        Link<Void> toMessageViewListPage = new BookmarkablePageLink<>("toMessageViewListPage", MessageViewListPage.class);
+        add(toMessageViewListPage);
     }
 
 //    private MessageView messageView;
