@@ -1,4 +1,4 @@
-package ICTProject.CistPortal.Service;
+package ICTProject.CistPortal.service;
 
 import ICTProject.CistPortal.bean.UserAccount;
 

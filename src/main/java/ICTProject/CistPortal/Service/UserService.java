@@ -1,6 +1,6 @@
-package ICTProject.CistPortal.Service;
+package ICTProject.CistPortal.service;
 
-import ICTProject.CistPortal.Repository.IAuthUserRepository;
+import ICTProject.CistPortal.repository.IAuthUserRepository;
 import ICTProject.CistPortal.bean.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package ICTProject.CistPortal.page;
 
-import ICTProject.CistPortal.Service.ICsvToStringsService;
-import ICTProject.CistPortal.Service.IUserService;
+import ICTProject.CistPortal.service.ICsvToStringsService;
+import ICTProject.CistPortal.service.IUserService;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.*;

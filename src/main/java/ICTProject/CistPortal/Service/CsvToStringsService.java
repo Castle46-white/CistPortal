@@ -1,4 +1,4 @@
-package ICTProject.CistPortal.Service;
+package ICTProject.CistPortal.service;
 
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.springframework.stereotype.Service;
