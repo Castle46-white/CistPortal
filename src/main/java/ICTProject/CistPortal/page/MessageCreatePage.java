@@ -1,5 +1,6 @@
 package ICTProject.CistPortal.page;
 
+import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.service.IDateTimeFormatService;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.DropDownChoice;
@@ -15,6 +16,7 @@ import org.wicketstuff.datetime.extensions.yui.calendar.DatePicker;
 import org.wicketstuff.datetime.markup.html.form.DateTextField;
 
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -34,6 +36,7 @@ public class MessageCreatePage extends WebPage {
         IModel<Date> deadlineModel = new Model<Date>(new Date());
         IModel<Integer> hourModel = Model.of();
         IModel<Integer> minuteModel = Model.of();
+        ;
 
         Form<Void> messageForm = new Form<>("massageForm") {
             @Override
@@ -42,10 +45,15 @@ public class MessageCreatePage extends WebPage {
                         hourModel.getObject(),
                         minuteModel.getObject());
 
+                System.out.println(deadline);
+
                 deadlineModel.setObject(deadline);
 
+                IModel<Message> messageModel = Model.of(new Message(messageTitleModel.getObject(),
+                        messageContentsModel.getObject(),
+                        Timestamp.valueOf(deadline.toString())));
 
-//                setResponsePage(new ChooseTargetPage(messageTitleModel, messageContentsModel, deadlineModel));
+                setResponsePage(new ChooseTargetPage(messageModel));
             }
         };
         add(messageForm);
