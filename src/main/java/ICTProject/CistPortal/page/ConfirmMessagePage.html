@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+    <meta charset="UTF-8">
+    <title>確認ページ</title>
+</head>
+<body>
+    <P>以下の内容で連絡を作成してよろしいですか？</P>
+    <div class="right">
+        <div>
+            <label>タイトル :</label>
+            <span wicket:id="messageTitle"></span>
+        </div>
+        <div>
+            <label>　内容　 :</label>
+            <span wicket:id="messageContents"></span>
+        </div>
+        <div>
+            <label>掲示期限 :</label>
+            <span wicket:id="deadline"></span>
+        </div>
+    </div>
+
+    <div>
+        <label>連絡相手</label>
+        <div wicket:id="targetUserIdLV">
+            <div wicket:id="targetUserId"></div>
+        </div>
+    </div>
+
+    <div>
+        <button onclick="history.back()">戻る</button><a wicket:id="toMessageCreateCompPage">作成</a>
+    </div>
+
+</body>
+<style>
+    div.right {
+        float: left;
+        width: 50%;
+        height: 100%;
+    }
+</style>
+</html>

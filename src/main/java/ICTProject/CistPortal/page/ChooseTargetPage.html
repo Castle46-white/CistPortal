@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+    <meta charset="UTF-8">
+    <title>連絡作成</title>
+</head>
+<body>
+<!--<form wicket:id="targetForm">-->
+    <!--<span wicket:id="target"></span>-->
+<!--</form>-->
+<div class="userIdLV">
+    <span>連絡する相手を選択してください</span>
+    <div wicket:id="userIdLV">
+        <input type="checkbox" wicket:id="userIdCheckBox"/>
+        <span wicket:id="userId"></span>
+    </div>
+</div>
+
+<span>選択済み</span>
+<wicket:container wicket:id="targetMarkupContainer">
+    <div  class="targetLV" wicket:id="targetListView">
+        <div wicket:id="targetUserId"></div>
+    </div>
+</wicket:container>
+
+
+<div>
+
+</div>
+<div>
+    <button onclick="history.back()">戻る</button><a wicket:id="toMessageConfirmPage">確認画面へ</a>
+</div>
+
+</body>
+
+<style>
+
+    div.userIdLV {
+        float: left;
+        width: 50%;
+    }
+
+</style>
+</html>
+
