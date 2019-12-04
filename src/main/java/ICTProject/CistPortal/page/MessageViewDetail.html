@@ -3,67 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        table{
+            width: 100%;
+            border-collapse:separate;
+            border-spacing: 0;
+        }
+
+        table th:first-child{
+            border-radius: 5px 0 0 0;
+        }
+
+        table th:last-child{
+            border-radius: 0 5px 0 0;
+            border-right: 1px solid #3c6690;
+        }
+
+        table th{
+            text-align: center;
+            color:white;
+            background: linear-gradient(#829ebc,#225588);
+            border-left: 1px solid #3c6690;
+            border-top: 1px solid #3c6690;
+            border-bottom: 1px solid #3c6690;
+            box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+            width: 25%;
+            padding: 10px 0;
+        }
+
+        table td{
+            text-align: center;
+            border-left: 1px solid #a8b7c5;
+            border-bottom: 1px solid #a8b7c5;
+            border-top:none;
+            box-shadow: 0px -3px 5px 1px #eee inset;
+            width: 25%;
+            padding: 10px 0;
+        }
+
+        table td:last-child{
+            border-right: 1px solid #a8b7c5;
+        }
+
+        table tr:last-child td:first-child {
+            border-radius: 0 0 0 5px;
+        }
+
+        table tr:last-child td:last-child {
+            border-radius: 0 0 5px 0;
+        }
+        h1 {
+            position: relative;
+            padding: 0.25em 1em;
+            border-top: solid 2px black;
+            border-bottom: solid 2px black;
+        }
+        h1:before, h1:after {
+            content: '';
+            position: absolute;
+            top: -7px;
+            width: 2px;
+            height: -webkit-calc(100% + 14px);
+            height: calc(100% + 14px);
+            background-color: black;
+        }
+        h1:before {
+            left: 7px;
+        }
+        h1:after {
+            right: 7px;
+        }
+        .breadcrumb {
+            padding-left:0;
+            margin-left:0;
+        }
+
+        .breadcrumb li{
+            display:inline;/*横に並ぶように*/
+            list-style: none;
+            font-weight: bold;/*太字*/
+        }
+
+        .breadcrumb li:after {/* >を表示*/
+            content: '>';
+            padding: 0 0px;
+            color: #555;
+        }
+
+        .breadcrumb li:last-child:after {
+            content: '';
+        }
+
+        .breadcrumb li a {
+            text-decoration: none;
+            color: #52b5ee;/*色*/
+        }
+
+        .breadcrumb li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
+<ul class="breadcrumb">
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="#" itemprop="url">
+            <span itemprop="title">ホーム</span>
+        </a>
+    </li>
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="#" itemprop="url">
+            <span itemprop="title">連絡一覧</span>
+        </a>
+    </li>
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="#" itemprop="url">
+            <span itemprop="title">連絡詳細</span>
+        </a>
+    </li>
+</ul>
+
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-10">
-<div class="page-header">
-<h1>連絡詳細</h1>
-</div>
-<button><a href="https://twitter.com/masaakusu">ヒミツのボタン</a></button>
+        <div class="col-lg-12">
+            <div class="page-header">
+                <p><h1 style="width: 100%">連絡詳細</h1></p>
+            </div>
 <button><a href="#" wicket:id="toMessageViewListPage">一覧に戻る</a></button>
+            <div class="table-responsive">
+                <table border="1" width="100%" cellspacing="0" cellpadding="5" >
+                    <table class="table table-bordered table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <!--<th class="active col-xs-3" style="background-color:red;">タイトル</th>-->
+                            <!--<td class="col-xs-9">-->
 
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <!--<th class="active col-xs-3" style="background-color:red;">タイトル</th>-->
-                    <!--<td class="col-xs-9">-->
-                    <th class="col-sm-auto">タイトル</th>
-                    <td class="col col-sm-9">
-                        <span wicket:id="title">タイトル</span>
-                    </td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th>内容</th>
-                    <td>
-                        <span wicket:id="message">内容</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th>掲示期限</th>
-                    <td>
-                        <span wicket:id="deadLine">掲示期限</span>
-                    </td>
-                </tr>
-                <tr>
-                    <th>更新日時</th>
-                    <td>
-                        <span wicket:id="updateDate">更新日時</span>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                            <th style="width: 25%">タイトル</th>
+                            <td style="width: 75%">
+                                <span wicket:id="title">タイトル</span>
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>内容</th>
+                            <td>
+                                <span wicket:id="message">内容</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>掲示期限</th>
+                            <td>
+                                <span wicket:id="deadLine">掲示期限</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>更新日時</th>
+                            <td>
+                                <span wicket:id="updateDate">更新日時</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </table>
+            </div>
         </div>
-        <div class="col-lg-2"></div>
     </div>
 </div>
-
-<header style="background-color:gray">Header</header>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2" style="background-color:red;">Red</div>
-        <div class="col-sm-8" style="background-color:blue;">Blue</div>
-        <div class="col-sm-2" style="background-color:yellow;">Yellow</div>
-    </div>
-</div>
-<footer style="background-color:gray">Footer</footer>
 
 </body>
 </html>
