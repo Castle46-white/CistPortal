@@ -1,10 +1,9 @@
-package ICTProject.CistPortal.page;
+package ICTProject.CistPortal.page.createMessage;
 
 import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.service.IMessageCreateService;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;

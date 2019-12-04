@@ -1,6 +1,6 @@
 package ICTProject.CistPortal.service;
 
-import ICTProject.CistPortal.model.MessageView;
+import ICTProject.CistPortal.bean.MessageView;
 import ICTProject.CistPortal.repository.IMessageViewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

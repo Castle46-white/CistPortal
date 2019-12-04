@@ -1,4 +1,4 @@
-package ICTProject.CistPortal.page;
+package ICTProject.CistPortal.page.createMessage;
 
 import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.service.IDateTimeFormatService;

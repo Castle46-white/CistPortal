@@ -1,6 +1,6 @@
 package ICTProject.CistPortal;
 
-import ICTProject.CistPortal.page.SignPage;
+import ICTProject.CistPortal.page.sign.SignPage;
 import com.giffing.wicket.spring.boot.starter.app.WicketBootSecuredWebApplication;
 import org.apache.wicket.Page;
 import org.apache.wicket.authroles.authentication.AbstractAuthenticatedWebSession;

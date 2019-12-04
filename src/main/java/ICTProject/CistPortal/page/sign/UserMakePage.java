@@ -1,5 +1,6 @@
-package ICTProject.CistPortal.page;
+package ICTProject.CistPortal.page.sign;
 
+import ICTProject.CistPortal.page.HomePage;
 import ICTProject.CistPortal.service.ICsvToStringsService;
 import ICTProject.CistPortal.service.IUserService;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
@@ -152,7 +153,7 @@ public class UserMakePage extends WebPage {
 
         userInfoFile.add(fileField);
 
-        Link<Void> toHomeLink = new BookmarkablePageLink<Void>("toHome",HomePage.class);
+        Link<Void> toHomeLink = new BookmarkablePageLink<Void>("toHome", HomePage.class);
         add(toHomeLink);
     }
 }

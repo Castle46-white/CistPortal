@@ -1,4 +1,4 @@
-package ICTProject.CistPortal.model;
+package ICTProject.CistPortal.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

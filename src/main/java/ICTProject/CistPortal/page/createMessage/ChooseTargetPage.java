@@ -1,7 +1,8 @@
-package ICTProject.CistPortal.page;
+package ICTProject.CistPortal.page.createMessage;
 
 import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.bean.UserIdCheckBox;
+import ICTProject.CistPortal.page.createMessage.ConfirmMessagePage;
 import ICTProject.CistPortal.service.IMessageCreateService;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
@@ -17,7 +18,6 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.wicketstuff.annotation.mount.MountPath;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @MountPath("ChooseTarget")

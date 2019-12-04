@@ -1,11 +1,9 @@
-package ICTProject.CistPortal.repository.jdbc;
+package ICTProject.CistPortal.repository;
 
-import ICTProject.CistPortal.model.MessageView;
-import ICTProject.CistPortal.repository.IMessageViewRepository;
+import ICTProject.CistPortal.bean.MessageView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SingleColumnRowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;

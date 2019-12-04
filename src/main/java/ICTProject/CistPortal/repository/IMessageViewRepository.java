@@ -1,6 +1,6 @@
 package ICTProject.CistPortal.repository;
 
-import ICTProject.CistPortal.model.MessageView;
+import ICTProject.CistPortal.bean.MessageView;
 
 import java.sql.Timestamp;
 import java.util.List;
