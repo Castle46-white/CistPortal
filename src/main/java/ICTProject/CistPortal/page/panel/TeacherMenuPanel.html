@@ -3,13 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+            padding-top:50px;
+
+        }
+        .sidebar{
+            position:fixed;
+            display:block;
+            top:50px;
+            padding-left: 50px;
+            padding-right: 82px;
+            bottom:0;
+            background-color: #F4F5F7;
+        }
+
+        .main{
+            padding-top:50px;
+            padding-left:50px;
+            position: fixed;
+            display:block;
+            top:0px;
+            bottom:0;
+        }
+
+        .page-header{
+            margin-top: 0px;
+        }
+    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 <wicket:panel>
-    <span >Home</span>
-    <span >連絡作成</span>
-    <span >連絡一覧</span>
-    <span >ログアウト</span>
+    <aside id="sideBar">
+        <h2><span>一覧</span></h2>
+        <div class="container-fluid">
+            <div class="row">
+                <!--<div class="col-sm-2 sidebar">-->
+                <ul class="sidebar">
+                    <p></p>
+                    <li role="presentation">
+                    <!--<ul class="tagList">-->
+                        <a href="#"><span >Home</span></a>
+                    </li>
+                    <p></p>
+                    <li role="presentation">
+                        <a href="#"><span >連絡作成</span></a>
+                    </li>
+                    <p></p>
+                    <li role="presentation">
+                        <a href="#"><span >連絡一覧</span></a>
+                    </li>
+                    <p></p>
+                    <li role="presentation">
+                        <a href="#"><span >ログアウト</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
 </wicket:panel>
 </body>
 </html>

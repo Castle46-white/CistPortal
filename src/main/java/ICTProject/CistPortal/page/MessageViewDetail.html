@@ -3,30 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-10">
+<div class="page-header">
 <h1>連絡詳細</h1>
+</div>
 <button><a href="https://twitter.com/masaakusu">ヒミツのボタン</a></button>
-<table border="1" width="100%">
-    <tr>
-        <th>タイトル</th>
-        <td><span wicket:id="title">タイトル</span></td>
-    </tr>
-    <tr>
-        <th>内容</th>
-        <td><span wicket:id="message">内容</span></td>
-    </tr>
-    <tr>
-        <th>掲示期限</th>
-        <td><span wicket:id="deadLine">掲示期限</span></td>
-    </tr>
-    <tr>
-        <th>更新日時</th>
-        <td><span wicket:id="updateDate">更新日時</span></td>
-    </tr>
-</table>
 <button><a href="#" wicket:id="toMessageViewListPage">一覧に戻る</a></button>
 
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <!--<th class="active col-xs-3" style="background-color:red;">タイトル</th>-->
+                    <!--<td class="col-xs-9">-->
+                    <th class="col-sm-auto">タイトル</th>
+                    <td class="col col-sm-9">
+                        <span wicket:id="title">タイトル</span>
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>内容</th>
+                    <td>
+                        <span wicket:id="message">内容</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>掲示期限</th>
+                    <td>
+                        <span wicket:id="deadLine">掲示期限</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>更新日時</th>
+                    <td>
+                        <span wicket:id="updateDate">更新日時</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<header style="background-color:gray">Header</header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2" style="background-color:red;">Red</div>
+        <div class="col-sm-8" style="background-color:blue;">Blue</div>
+        <div class="col-sm-2" style="background-color:yellow;">Yellow</div>
+    </div>
+</div>
+<footer style="background-color:gray">Footer</footer>
 
 </body>
 </html>
