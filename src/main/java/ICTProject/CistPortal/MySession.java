@@ -19,7 +19,8 @@ public class MySession extends AbstractAuthenticatedWebSession {
     }
 
     public void sign(UserAccount userAccount) {
-        replaceSession();
+//        replaceSession();
+        role.clear();
         this.userId = userAccount.getId();
         this.lastName = userAccount.getLastName();
         this.firstName = userAccount.getFirstName();
@@ -31,8 +32,10 @@ public class MySession extends AbstractAuthenticatedWebSession {
     public Roles getRoles() {
         if(isSignedIn()) {
             return role;
+        }else{
+            return new Roles();
         }
-        return new Roles();
+
     }
 
     //ToDo Enumで比較できないか改善の余地あり
