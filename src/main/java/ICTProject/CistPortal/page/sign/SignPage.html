@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
-<head>
+<wicket:head>
     <meta charset="UTF-8">
     <title>サインページ</title>
-</head>
-<body>
-<h1>サインイン</h1>
-<form action="#" wicket:id="userInfo">
-    <div>ユーザid : <input type="text" wicket:id="userId"/></div>
-    <div>パスワード : <input type="password" wicket:id="userPass"/></div>
-    <div><button type="submit">サインイン</button> </div>
+    <wicket:link>
+        <link rel="stylesheet" href="../css/signin.css">
+        <link rel="stylesheet" href="webjars/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous"/>
+    </wicket:link>
+
+    <script src="webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</wicket:head>
+
+<!--TODO 画像-->
+
+<body class="text-center">
+<form class="form-signin" wicket:id="userInfo">
+    <img class="mb-4" src="../img/cist_icon.png" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">CIST-Portal</h1>
+    <label for="inputUserId" class="sr-only">User ID</label>
+    <input type="text" id="inputUserId" class="form-control" placeholder="User ID" required autofocus wicket:id="userId">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required wicket:id="userPass">
+    <!--<div class="checkbox mb-3">-->
+        <!--<label>-->
+            <!--<input type="checkbox" value="remember-me"> Remember me-->
+        <!--</label>-->
+    <!--</div>-->
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; CIST 公立千歳科学技術大学</p>
 </form>
 </body>
 </html>
