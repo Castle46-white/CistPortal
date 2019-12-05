@@ -25,7 +25,11 @@ public class MySession extends AbstractAuthenticatedWebSession {
         this.lastName = userAccount.getLastName();
         this.firstName = userAccount.getFirstName();
         this.grade = userAccount.getGrade();
-        role.add(MyRole.getById(userAccount.getRoleId()).toString());
+        try {
+            role.add(MyRole.getById(userAccount.getRoleId()).toString());
+        }catch (IllegalArgumentException e) {
+            role.add(null);
+        }
     }
 
     @Override

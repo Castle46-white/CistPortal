@@ -45,6 +45,12 @@ public class AuthUserRepository implements IAuthUserRepository {
         String sql = "select id , last_name , first_name ,grade , role_id from  user_account inner join user_pass on user_account.id = user_pass.user_id Where id = ? and password = crypt(?, password)";
         List<UserAccount> userAccount = jdbc.query(sql, new BeanPropertyRowMapper<>(UserAccount.class),new Object[]{userId,userPass});
 
-        return userAccount.get(0);
+        try{
+            return userAccount.get(0);
+        }catch (IndexOutOfBoundsException e){
+            return new UserAccount();
+        }
+
+
     }
 }

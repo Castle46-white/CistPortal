@@ -21,6 +21,7 @@
 <form class="form-signin" wicket:id="userInfo">
     <img class="mb-4" src="../img/cist_icon.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">CIST-Portal</h1>
+
     <label for="inputUserId" class="sr-only">User ID</label>
     <input type="text" id="inputUserId" class="form-control" placeholder="User ID" required autofocus wicket:id="userId">
     <label for="inputPassword" class="sr-only">Password</label>
@@ -30,6 +31,9 @@
             <!--<input type="checkbox" value="remember-me"> Remember me-->
         <!--</label>-->
     <!--</div>-->
+    <wicket:enclosure>
+        <label class="feedback-text" wicket:id="feedback"></label>
+    </wicket:enclosure>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     <p class="mt-5 mb-3 text-muted">&copy; CIST 公立千歳科学技術大学</p>
 </form>
