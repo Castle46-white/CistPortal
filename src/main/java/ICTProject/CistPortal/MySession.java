@@ -32,6 +32,10 @@ public class MySession extends AbstractAuthenticatedWebSession {
         }
     }
 
+    public void signOut() {
+        invalidate();
+    }
+
     @Override
     public Roles getRoles() {
         if(isSignedIn()) {
