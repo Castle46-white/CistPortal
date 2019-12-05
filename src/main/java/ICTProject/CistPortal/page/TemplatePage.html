@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
+<wicket:head>
+    <meta charset="UTF-8">
+
+    <wicket:link>
+        <link rel="stylesheet" href="webjars/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous"/>
+        <link href="css/dashboard.css" rel="stylesheet">
+    </wicket:link>
+
+    <script src="webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</wicket:head>
 <body>
+
 <div id="header" wicket:id="headerPanel">header</div>
-<div id="body">
-    <div id="menu" wicket:id="menuPanel">menu</div>
-    <!--<div id="content" wicket:id="contentComponent">content</div>-->
+<div class="container-fluid">
+    <div class="row">
+        <div id="body">
+            <div id="menu" wicket:id="menuPanel">menu</div>
+            <!--<div id="content" wicket:id="contentComponent">content</div>-->
+        </div>
+    </div>
 </div>
 <div id="footer" wicket:id="footerPanel">footer</div>
+
+<!--<script src="webjars/jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
+<!--<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>-->
+<!--<script src="dashboard.js"></script>-->
+
 </body>
 </html>

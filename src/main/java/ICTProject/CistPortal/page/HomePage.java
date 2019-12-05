@@ -13,7 +13,5 @@ public class HomePage extends TemplatePage {
 
     public HomePage() {
         super();
-        Link<Void> toUserMakeLink = new BookmarkablePageLink<Void>("toUserMake", UserMakePage.class);
-        add(toUserMakeLink);
     }
 }

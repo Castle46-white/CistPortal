@@ -9,14 +9,16 @@ public class TemplatePage extends WebPage {
 
     public TemplatePage() {
         add(new HeaderPanel("headerPanel"));
-        System.out.println(MySession.get().getRoles());
         switch (MySession.get().getRoles().toString()){
             case "ADMIN":
                 addOrReplace(new MasterMenuPanel("menuPanel"));
+                break;
             case "TEACHER":
                 addOrReplace(new TeacherMenuPanel("menuPanel"));
+                break;
             case "STUDENT":
                 addOrReplace(new StudentMenuPanel("menuPanel"));
+                break;
         }
         add(new FooterPanel("footerPanel"));
     }
