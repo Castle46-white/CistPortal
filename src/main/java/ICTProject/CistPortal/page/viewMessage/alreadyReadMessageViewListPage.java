@@ -1,5 +1,6 @@
 package ICTProject.CistPortal.page.viewMessage;
 
+import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.bean.MessageView;
 import ICTProject.CistPortal.service.IMessageViewService;
 import org.apache.wicket.markup.html.WebPage;
@@ -24,7 +25,7 @@ public class alreadyReadMessageViewListPage extends WebPage {
 
     public alreadyReadMessageViewListPage(){
 
-        IModel<List<MessageView>> messageViewModel = Model.ofList(iMessageViewService.alreadyReadSelectMany("b2171530"));
+        IModel<List<MessageView>> messageViewModel = Model.ofList(iMessageViewService.alreadyReadSelectMany(MySession.get().getUserId()));
 
         ListView<MessageView> messageViewLV = new ListView<MessageView>("messageView",messageViewModel) {
             @Override

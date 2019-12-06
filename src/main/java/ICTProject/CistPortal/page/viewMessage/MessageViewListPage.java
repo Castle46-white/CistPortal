@@ -1,6 +1,8 @@
 package ICTProject.CistPortal.page.viewMessage;
 
+import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.bean.MessageView;
+import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IMessageViewService;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.Link;
@@ -17,16 +19,17 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @MountPath("MessageViewList")
-public class MessageViewListPage extends WebPage {
+public class MessageViewListPage extends TemplatePage {
 
     @SpringBean
     private IMessageViewService iMessageViewService;
 
     public MessageViewListPage(){
+        super();
 
         Timestamp dateTime = Timestamp.valueOf(LocalDateTime.now());
 
-        IModel<List<MessageView>> messageViewModel = Model.ofList(iMessageViewService.selectMany("b2171530", dateTime));
+        IModel<List<MessageView>> messageViewModel = Model.ofList(iMessageViewService.selectMany(MySession.get().getUserId(), dateTime));
 
         ListView<MessageView> MessageViewLV = new ListView<MessageView>("MessageView",messageViewModel) {
             @Override

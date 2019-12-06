@@ -1,5 +1,6 @@
 package ICTProject.CistPortal.page.createMessage;
 
+import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IMessageCreateService;
@@ -45,7 +46,7 @@ public class ConfirmMessagePage extends TemplatePage {
                         messageModel.getObject().getContents(),
                         messageModel.getObject().getDeadline(),
                         Timestamp.valueOf(LocalDateTime.now()),
-                        "b2170000",
+                        MySession.get().getUserId(),
                         targetUserIdListModel.getObject());
                 setResponsePage(new MessageCreateCompPage());
             }
