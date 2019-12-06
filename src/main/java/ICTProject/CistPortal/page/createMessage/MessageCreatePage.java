@@ -1,6 +1,7 @@
 package ICTProject.CistPortal.page.createMessage;
 
 import ICTProject.CistPortal.bean.Message;
+import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IDateTimeFormatService;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.DropDownChoice;
@@ -22,12 +23,15 @@ import java.util.Date;
 import java.util.List;
 
 @MountPath("MessageCreate")
-public class MessageCreatePage extends WebPage {
+public class MessageCreatePage extends TemplatePage {
 
     @SpringBean
     private IDateTimeFormatService dateTimeFormatService;
 
     public MessageCreatePage() {
+        super();
+
+
 
         //TODO バリデーションの追加
 

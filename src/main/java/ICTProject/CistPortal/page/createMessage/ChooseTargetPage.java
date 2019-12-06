@@ -2,6 +2,7 @@ package ICTProject.CistPortal.page.createMessage;
 
 import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.bean.UserIdCheckBox;
+import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.page.createMessage.ConfirmMessagePage;
 import ICTProject.CistPortal.service.IMessageCreateService;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -21,12 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @MountPath("ChooseTarget")
-public class ChooseTargetPage extends WebPage {
+public class ChooseTargetPage extends TemplatePage {
 
     @SpringBean
     private IMessageCreateService messageCreateService;
 
     public ChooseTargetPage(IModel<Message> messageModel) {
+        super();
 
         //TODO コードの整理
 

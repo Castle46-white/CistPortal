@@ -1,6 +1,7 @@
 package ICTProject.CistPortal.page.createMessage;
 
 import ICTProject.CistPortal.bean.Message;
+import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IMessageCreateService;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -15,12 +16,13 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ConfirmMessagePage extends WebPage {
+public class ConfirmMessagePage extends TemplatePage {
 
     @SpringBean
     IMessageCreateService messageCreateService;
 
     public ConfirmMessagePage(IModel<Message> messageModel, IModel<List<String>> targetUserIdListModel) {
+        super();
 
         add(new Label("messageTitle",messageModel.getObject().getTitle()));
         add(new Label("messageContents",messageModel.getObject().getContents()));
