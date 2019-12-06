@@ -26,36 +26,73 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">連絡作成</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                <!--<div class="btn-toolbar mb-2 mb-md-0">-->
+                    <!--<div class="btn-group mr-2">-->
+                        <!--<button type="button" class="btn btn-sm btn-outline-secondary" onclick="history.back()">戻る</button>-->
+                        <!--<button type="submit" class="btn btn-sm btn-outline-secondary" form="messageForm" wicket:id="formButton">次へ</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">連絡情報入力</div>
+                    <div class="card-body">
+                        <form wicket:id="massageForm" id="messageForm">
+                            <div class="form-group">
+                                <label class="control-label">タイトル</label>
+                                <input class="form-control" type="text" wicket:id="messageTitle"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">内容</label>
+                                <textarea class="form-control" rows="15" wicket:id="messageContents"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">掲示期限</label>
+                                <div class="form-inline">
+                                    <input class="form-control" type="text" wicket:id="deadline"/>
+                                    <div class="col-auto">
+                                        <select class="form-control" wicket:id="hourChoice">
+                                            <opeion value="hour">00</opeion>
+                                        </select> 時
+                                    </div>
+                                    <div class="col-auto">
+                                        <select class="form-control" wicket:id="minuteChoice">
+                                            <opeion value="minute">00</opeion>
+                                        </select> 分
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="btn-toolbar mb-2 mb-md-0 float-right">
+                                <div class="btn-group mr-2">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="history.back()">戻る</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">次へ</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
                 </div>
             </div>
 
-            <form action="#" wicket:id="massageForm"　id="messageForm">
-                <!--<wicket:enclosure child="msg">-->
-                <!--<div wicket:id="msg" color="red">バリデーションの有無と理由</div>-->
-                <!--</wicket:enclosure>-->
-                <div>タイトル：<input type="text" wicket:id="messageTitle"/></div>
-                <div>内容<br><textarea wicket:id="messageContents"></textarea></div>
-                <div>掲示期限：<input type="text" wicket:id="deadline"/>
-                    <select wicket:id="hourChoice">
-                        <opeion value="hour">00</opeion>
-                    </select> 時
-                    <select wicket:id="minuteChoice">
-                        <opeion value="minute">00</opeion>
-                    </select> 分
-                </div>
-                <div>
-                    <button onclick="history.back()">戻る</button><button type="submit">次へ</button>
-                </div>
-            </form>
+            <!--<form action="#" wicket:id="massageForm"　id="messageForm">-->
+                <!--&lt;!&ndash;<wicket:enclosure child="msg">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div wicket:id="msg" color="red">バリデーションの有無と理由</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</wicket:enclosure>&ndash;&gt;-->
+                <!--<div>タイトル：<input type="text" wicket:id="messageTitle"/></div>-->
+                <!--<div>内容<br><textarea wicket:id="messageContents"></textarea></div>-->
+                <!--<div>掲示期限：<input type="text" wicket:id="deadline"/>-->
+                    <!--<select wicket:id="hourChoice">-->
+                        <!--<opeion value="hour">00</opeion>-->
+                    <!--</select> 時-->
+                    <!--<select wicket:id="minuteChoice">-->
+                        <!--<opeion value="minute">00</opeion>-->
+                    <!--</select> 分-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<button onclick="history.back()">戻る</button><button type="submit">次へ</button>-->
+                <!--</div>-->
+            <!--</form>-->
 
             <h2>Section title</h2>
             <div class="table-responsive">

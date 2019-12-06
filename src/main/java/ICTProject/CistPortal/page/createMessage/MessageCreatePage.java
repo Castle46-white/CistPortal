@@ -75,10 +75,16 @@ public class MessageCreatePage extends TemplatePage {
 
         //掲示期限フィールド
         //日付
+        //TODO datePickerのアイコン変更されない問題
         DateTextField deadlineField = new DateTextField("deadline",deadlineModel,new StyleDateConverter("M-", true));
         deadlineField.setRequired(true);
         messageForm.add(deadlineField);
-        deadlineField.add(new DatePicker());
+        deadlineField.add(new DatePicker(){
+//            @Override
+//            protected CharSequence getIconUrl() {
+//                return "../img/datePicker_icon.png";
+//            }
+        });
 
 
         //TODO Listにベタ書きは直したい
