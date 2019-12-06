@@ -1,6 +1,7 @@
 package ICTProject.CistPortal.page.viewMessage;
 
 import ICTProject.CistPortal.bean.MessageView;
+import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IMessageViewService;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
@@ -14,7 +15,7 @@ import org.apache.wicket.markup.html.basic.Label;
 
 
 @MountPath("MessageViewDetail")
-public class MessageViewDetail extends WebPage {
+public class MessageViewDetail extends TemplatePage {
 
     @SpringBean
     private  IMessageViewService iMessageViewService;
@@ -24,6 +25,7 @@ public class MessageViewDetail extends WebPage {
     }
 
     MessageViewDetail(int id,String userId){
+        super();
         int result = iMessageViewService.insertOne(id,userId);
         IModel<MessageView> messageViewIModel = Model.of(iMessageViewService.selectOne(id));
         Label messageViewTitle = new Label("title", messageViewIModel.getObject().getTitle());

@@ -5,6 +5,7 @@ import ICTProject.CistPortal.bean.MessageView;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IMessageViewService;
 import org.apache.wicket.markup.html.WebPage;
+import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
@@ -61,6 +62,8 @@ public class MessageViewListPage extends TemplatePage {
         };
 
         add(MessageViewLV);
+
+        add(new BookmarkablePageLink<>("toAlreadyReadMessageViewListPage",alreadyReadMessageViewListPage.class));
 
 
 
