@@ -1,29 +1,134 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
-<head>
+<wicket:head>
     <meta charset="UTF-8">
-    <title>ユーザ作成ページ</title>
-</head>
+
+    <wicket:link>
+        <link rel="stylesheet" href="webjars/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+              crossorigin="anonymous"/>
+        <link href="../css/dashboard.css" rel="stylesheet">
+    </wicket:link>
+
+    <script src="webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+</wicket:head>
+
 <body>
-<h1>ユーザ作成</h1>
-<form action="#" wicket:id="userInfo">
-    <div>ユーザid : <input type="text" wicket:id="userId"/></div>
-    <div>姓 : <input type="text" wicket:id="lastName"/></div>
-    <div>名 : <input type="text" wicket:id="firstName"/></div>
-    <div>学年 : <input type="text" wicket:id="grade"/></div>
-    <div>権限 : <select wicket:id="role">
-        <option value=0>管理者</option>
-        <option value=1>教員</option>
-        <option value=2>学生</option>
-    </select></div>
-    <div>パスワード : <input type="password" wicket:id="userPass"/></div>
-    <div><button type="submit" wicket:id="button1">作成</button> </div>
-</form>
-<h2>ファイルを読み込む</h2>
-<form action="#" wicket:id="userInfoFile">
-    <div><input type="file" wicket:id="file"/></div>
-    <div><button type="submit" wicket:id="button2">送信</button> </div>
-</form>
-<div><a href="#" wicket:id="toHome">戻る</a></div>
-</body>
+
+<div wicket:id="headerPanel">header</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div wicket:id="menuPanel">menu</div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">ユーザー作成</h1>
+            </div>
+
+            <div class="container">
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="card-header">ユーザー情報入力</div>
+                        <div class="card-body">
+                            <form id="messageForm" wicket:id="userInfo">
+                                <div class="form-group">
+                                    <label class="control-label">ユーザーID</label>
+                                    <input class="form-control" type="text" wicket:id="userId"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">姓</label>
+                                    <input class="form-control" type="text" wicket:id="lastName"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">名</label>
+                                    <input class="form-control" type="text" wicket:id="firstName"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">学年</label>
+                                    <input class="form-control" type="text" wicket:id="grade"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">権限</label>
+                                    <select class="custom-select custom-select-sm" wicket:id="role">
+                                        <option value=0>管理者</option>
+                                        <option value=1>教員</option>
+                                        <option value=2>学生</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">パスワード</label>
+                                    <input class="form-control" type="password" wicket:id="userPass"/>
+                                </div>
+
+                                <div class="btn-toolbar mb-2 mb-md-0 float-right">
+                                    <div class="btn-group mr-2">
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary" wicket:id="button1">作成</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">csvファイルから作成</div>
+                        <div class="card-body">
+                            <form action="#" wicket:id="userInfoFile">
+                                <div class="input-group">
+                                    <label class="input-group-btn">
+        <span class="btn btn-secondary">
+            ファイルを選択<input type="file" style="display:none" wicket:id="file">
+        </span>
+                                    </label>
+                                    <input type="text" class="form-control" readonly="">
+                                </div>
+                                <div class="btn-toolbar mb-2 mb-md-0 float-right">
+                                    <div class="btn-group mr-2">
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary" wicket:id="button2">送信</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h2>Section title</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Header</th>
+                        <th>Header</th>
+                        <th>Header</th>
+                        <th>Header</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+
+    </div>
+
+</div>
+<div wicket:id="footerPanel">footer</div>
+
+
+
+
+
+<script src="webjars/code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="webjars/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<script src="webjars/cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script src="webjars/cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="dashboard.js"></script></body>
 </html>

@@ -1,6 +1,7 @@
 package ICTProject.CistPortal.page.sign;
 
 import ICTProject.CistPortal.page.HomePage;
+import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.ICsvToStringsService;
 import ICTProject.CistPortal.service.IUserService;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
@@ -23,7 +24,7 @@ import java.util.List;
 
 @AuthorizeInstantiation("ADMIN")
 @MountPath("UserMake")
-public class UserMakePage extends WebPage {
+public class UserMakePage extends TemplatePage {
     @SpringBean
     private IUserService userService;
 
@@ -31,6 +32,8 @@ public class UserMakePage extends WebPage {
     private ICsvToStringsService csvToStringsService;
 
     public UserMakePage() {
+        super();
+
         IModel<String> userIdModel = Model.of("");
         IModel<String> lastNameModel = Model.of("");
         IModel<String> firstNameModel = Model.of("");
@@ -153,7 +156,7 @@ public class UserMakePage extends WebPage {
 
         userInfoFile.add(fileField);
 
-        Link<Void> toHomeLink = new BookmarkablePageLink<Void>("toHome", HomePage.class);
-        add(toHomeLink);
+//        Link<Void> toHomeLink = new BookmarkablePageLink<Void>("toHome", HomePage.class);
+//        add(toHomeLink);
     }
 }
