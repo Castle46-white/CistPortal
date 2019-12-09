@@ -11,6 +11,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.validation.validator.StringValidator;
 import org.wicketstuff.annotation.mount.MountPath;
 import org.wicketstuff.datetime.StyleDateConverter;
 import org.wicketstuff.datetime.extensions.yui.calendar.DatePicker;
@@ -64,12 +65,26 @@ public class MessageCreatePage extends TemplatePage {
 
 
         //タイトルフィールド
-        TextField<String> messageTitleField = new TextField<>("messageTitle",messageTitleModel);
+        TextField<String> messageTitleField = new TextField<>("messageTitle",messageTitleModel) {
+            @Override
+            protected void onInitialize() {
+                super.onInitialize();
+                var validator = StringValidator.lengthBetween(1,64);
+                add(validator);
+            }
+        };
         messageTitleField.setRequired(true);
         messageForm.add(messageTitleField);
 
         //内容フィールド
-        TextArea<String> messageContentsField = new TextArea<>("messageContents",messageContentsModel);
+        TextArea<String> messageContentsField = new TextArea<>("messageContents",messageContentsModel) {
+            @Override
+            protected void onInitialize() {
+                super.onInitialize();
+                var validator = StringValidator.lengthBetween(1,2000);
+                add(validator);
+            }
+        };
         messageContentsField.setRequired(true);
         messageForm.add(messageContentsField);
 

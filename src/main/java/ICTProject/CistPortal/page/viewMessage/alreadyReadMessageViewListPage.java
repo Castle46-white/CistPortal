@@ -16,6 +16,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 import org.wicketstuff.annotation.mount.MountPath;
 
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class alreadyReadMessageViewListPage extends TemplatePage {
     public alreadyReadMessageViewListPage(){
         super();
 
-        IModel<List<MessageView>> messageViewModel = Model.ofList(iMessageViewService.alreadyReadSelectMany(MySession.get().getUserId()));
+        IModel<List<MessageView>> messageViewModel = Model.ofList(iMessageViewService.alreadyReadSelectMany(MySession.get().getUserId(), Timestamp.valueOf(LocalDateTime.now())));
 
         ListView<MessageView> messageViewLV = new ListView<MessageView>("messageView",messageViewModel) {
             @Override

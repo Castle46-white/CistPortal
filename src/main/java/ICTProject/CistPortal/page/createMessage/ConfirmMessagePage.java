@@ -41,7 +41,6 @@ public class ConfirmMessagePage extends TemplatePage {
         add(new Link<Void>("toMessageCreateCompPage") {
             @Override
             public void onClick() {
-                //TODO session実装後にuserIdを取得できるように
                 messageCreateService.create(messageModel.getObject().getTitle(),
                         messageModel.getObject().getContents(),
                         messageModel.getObject().getDeadline(),

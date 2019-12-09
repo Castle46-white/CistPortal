@@ -25,8 +25,8 @@ public class MessageViewService implements IMessageViewService{
     }
 
     @Override
-    public List<MessageView> alreadyReadSelectMany(String userId) {
-        List<MessageView> messageViewList = iMessageViewRepository.alreadyReadSelectMany(userId);
+    public List<MessageView> alreadyReadSelectMany(String userId,Timestamp dateTime) {
+        List<MessageView> messageViewList = iMessageViewRepository.alreadyReadSelectMany(userId,dateTime);
         return messageViewList;
     }
 
@@ -41,4 +41,17 @@ public class MessageViewService implements IMessageViewService{
         var result = iMessageViewRepository.insertOne(id,userId);
         return result;
     }
+
+    @Override
+    public int updateRead(long messageId,String userId) {
+        var result = iMessageViewRepository.updateRead(messageId,userId);
+        return result;
+    }
+
+    @Override
+    public int updateUnread(long messageId,String userId) {
+        var result = iMessageViewRepository.updateRead(messageId,userId);
+        return result;
+    }
+
 }

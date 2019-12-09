@@ -53,7 +53,7 @@ public class MessageViewListPage extends TemplatePage {
                     var label = new Link<>("toMessageViewDetail") {
                         @Override
                         public void onClick() {
-                            setResponsePage(new MessageViewDetail(messageView.getId(),messageView.getUserId()));
+                            setResponsePage(new MessageViewDetail(messageView.getId(),MySession.get().getUserId()));
                         }
                     };
                     listItem.add(label);

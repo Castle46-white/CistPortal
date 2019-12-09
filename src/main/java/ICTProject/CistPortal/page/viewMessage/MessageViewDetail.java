@@ -15,7 +15,7 @@ import org.apache.wicket.markup.html.basic.Label;
 
 
 @MountPath("MessageViewDetail")
-public class MessageViewDetail extends TemplatePage {
+public class MessageViewDetail extends WebPage {
 
     @SpringBean
     private  IMessageViewService iMessageViewService;
@@ -27,6 +27,7 @@ public class MessageViewDetail extends TemplatePage {
     MessageViewDetail(int id,String userId){
         super();
         int result = iMessageViewService.insertOne(id,userId);
+        result = iMessageViewService.updateRead(id,userId);
         IModel<MessageView> messageViewIModel = Model.of(iMessageViewService.selectOne(id));
         Label messageViewTitle = new Label("title", messageViewIModel.getObject().getTitle());
         add(messageViewTitle);
