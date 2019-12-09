@@ -15,7 +15,7 @@ import org.apache.wicket.markup.html.basic.Label;
 
 
 @MountPath("MessageViewDetail")
-public class MessageViewDetail extends WebPage {
+public class MessageViewDetail extends TemplatePage {
 
     @SpringBean
     private  IMessageViewService iMessageViewService;
