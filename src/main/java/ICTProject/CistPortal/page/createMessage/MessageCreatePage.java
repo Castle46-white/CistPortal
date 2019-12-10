@@ -8,6 +8,7 @@ import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextArea;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -19,6 +20,7 @@ import org.wicketstuff.datetime.markup.html.form.DateTextField;
 
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -50,13 +52,17 @@ public class MessageCreatePage extends TemplatePage {
                         hourModel.getObject(),
                         minuteModel.getObject());
 
-                System.out.println(deadline);
-
                 deadlineModel.setObject(deadline);
 
                 IModel<Message> messageModel = Model.of(new Message(messageTitleModel.getObject(),
                         messageContentsModel.getObject(),
                         Timestamp.valueOf(deadline.toString())));
+
+                if(!deadline.after(new Date())) {
+                    System.out.println(new Date());
+                    error("現在時刻以降の日時を設定してください。");
+                    return;
+                }
 
                 setResponsePage(new ChooseTargetPage(messageModel));
             }
@@ -107,13 +113,18 @@ public class MessageCreatePage extends TemplatePage {
         //時
         List<Integer> hourList = Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23);
         DropDownChoice<Integer> hourChoice = new DropDownChoice<>("hourChoice",hourModel,hourList);
+        hourChoice.setRequired(true);
         messageForm.add(hourChoice);
 
 
         //分
         List<Integer> minuteList = Arrays.asList(00,15,30,45);
         DropDownChoice<Integer> minuteChoice = new DropDownChoice<>("minuteChoice",minuteModel,minuteList);
+        minuteChoice.setRequired(true);
         messageForm.add(minuteChoice);
+
+        var fbMsgPanel = new FeedbackPanel("fbMsg");
+        messageForm.add(fbMsgPanel);
 
 
     }

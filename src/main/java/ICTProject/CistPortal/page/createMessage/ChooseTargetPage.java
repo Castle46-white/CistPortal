@@ -83,7 +83,12 @@ public class ChooseTargetPage extends TemplatePage {
         add(new Link<Void>("toMessageConfirmPage") {
             @Override
             public void onClick() {
-                setResponsePage(new ConfirmMessagePage(messageModel,targetUserIdListModel));
+                if(targetUserIdListModel.getObject().size() >= 1) {
+                    setResponsePage(new ConfirmMessagePage(messageModel,targetUserIdListModel));
+                }else {
+                    error("１人以上の相手を選択してください。");
+                }
+
             }
         });
 
