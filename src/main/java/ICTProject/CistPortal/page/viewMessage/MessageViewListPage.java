@@ -3,6 +3,7 @@ package ICTProject.CistPortal.page.viewMessage;
 import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.bean.MessageView;
 import ICTProject.CistPortal.page.TemplatePage;
+import ICTProject.CistPortal.page.myMessage.MyMessageListPage;
 import ICTProject.CistPortal.service.IMessageViewService;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
@@ -67,6 +68,7 @@ public class MessageViewListPage extends TemplatePage {
         add(MessageViewLV);
 
         add(new BookmarkablePageLink<>("toAlreadyReadMessageViewListPage",alreadyReadMessageViewListPage.class));
+        add(new BookmarkablePageLink<>("toMyMessageListPage", MyMessageListPage.class));
 
 
 

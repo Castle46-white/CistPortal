@@ -25,7 +25,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">連絡一覧</h1>
+                <h1 class="h2">連絡削除</h1>
                 <!--<div class="btn-toolbar mb-2 mb-md-0">-->
                 <!--<div class="btn-group mr-2">-->
                 <!--<button type="button" class="btn btn-sm btn-outline-secondary" onclick="history.back()">戻る</button>-->
@@ -34,49 +34,15 @@
                 <!--</div>-->
             </div>
 
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">未読</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" wicket:id="toAlreadyReadMessageViewListPage">既読</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" wicket:id="toMyMessageListPage">作成した連絡</a>
-                </li>
-            </ul>
+            <div class="alert alert-success" role="alert">
+                連絡を削除しました。
+            </div>
 
-
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col">タイトル</th>
-                    <th scope="col">掲示期限</th>
-                    <th scope="col">更新日</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr wicket:id="MessageView">
-                    <!--<td><span wicket:id="id">id</span></td>-->
-                    <td>
-                        <span wicket:id="title">title</span>
-                    </td>
-                    <td>
-                        <span wicket:id="deadLine"></span>
-                    </td>
-                    <td>
-                        <span wicket:id="updateDate"></span>
-                    </td>
-                    <td>
-                        <!--<div style="background-color: #eeeeee">-->
-                        <!--</div>-->
-                        <button type="button" class="btn btn-info">
-                            <span wicket:id="toMessageViewDetail">詳細</span>
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="btn-toolbar mb-2 mb-md-0 float-right">
+                <div class="btn-group mr-2">
+                    <a class="btn btn-sm btn-outline-secondary" wicket:id="toHomePage">ホームへ戻る</a>
+                </div>
+            </div>
 
         </main>
 
@@ -91,5 +57,6 @@
 <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-<script src="dashboard.js"></script></body>
+<script src="dashboard.js"></script>
+</body>
 </html>

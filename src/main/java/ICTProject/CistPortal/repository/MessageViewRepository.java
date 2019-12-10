@@ -24,31 +24,28 @@ public class MessageViewRepository implements IMessageViewRepository {
     public List<MessageView> selectMany(String userId, Timestamp dateTime) {
         var sql = "select * from message_target inner  join message " +
                 "on message_target.message_id = message.id " +
-                "where message_target.user_id = ? " +
+                "where not exists (select * from deleted_message where message.id = deleted_message.message_id) " +
+                "and message_target.user_id = ? " +
                 "and message_target.read_unread = false " +
-                "and deadline >= ?";
-
+                "and deadline >= ? ";
         var messageViewList = jdbcTemplate.query(sql,
                 new BeanPropertyRowMapper<>(MessageView.class),
                 new Object[]{userId,dateTime}
         );
-
         return messageViewList;
     }
-
     @Override
     public List<MessageView> alreadyReadSelectMany(String userId,Timestamp dateTime) {
         var sql = "select * from message_target inner  join message " +
                 "on message_target.message_id = message.id " +
-                "where message_target.user_id = ? " +
+                "where not exists (select * from deleted_message where message.id = deleted_message.message_id) " +
+                "and message_target.user_id = ? " +
                 "and message_target.read_unread = true " +
-                "and deadline >= ?";
-
+                "and deadline >= ? ";
         var messageViewList = jdbcTemplate.query(sql,
                 new BeanPropertyRowMapper<>(MessageView.class),
                 new Object[]{userId,dateTime}
         );
-
         return messageViewList;
     }
 
