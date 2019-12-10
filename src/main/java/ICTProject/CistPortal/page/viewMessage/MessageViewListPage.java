@@ -4,6 +4,7 @@ import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.bean.MessageView;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IMessageViewService;
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.apache.wicket.markup.html.link.Link;
@@ -19,6 +20,8 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
+@AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
 @MountPath("MessageViewList")
 public class MessageViewListPage extends TemplatePage {
 

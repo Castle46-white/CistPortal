@@ -7,6 +7,7 @@ import ICTProject.CistPortal.page.createMessage.ConfirmMessagePage;
 import ICTProject.CistPortal.service.IMessageCreateService;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
@@ -21,6 +22,8 @@ import org.wicketstuff.annotation.mount.MountPath;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
 @MountPath("ChooseTarget")
 public class ChooseTargetPage extends TemplatePage {
 

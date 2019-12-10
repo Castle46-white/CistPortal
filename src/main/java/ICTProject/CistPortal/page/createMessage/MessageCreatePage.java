@@ -3,6 +3,7 @@ package ICTProject.CistPortal.page.createMessage;
 import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IDateTimeFormatService;
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -25,6 +26,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+
+@AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
 @MountPath("MessageCreate")
 public class MessageCreatePage extends TemplatePage {
 

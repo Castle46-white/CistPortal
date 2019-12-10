@@ -4,6 +4,7 @@ import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IMessageCreateService;
+import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
@@ -17,6 +18,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
 @MountPath("ConfirmMessagePage")
 public class ConfirmMessagePage extends TemplatePage {
 

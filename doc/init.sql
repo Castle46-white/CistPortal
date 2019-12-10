@@ -64,3 +64,10 @@ create table message_target (
   primary key (user_id,message_id)
 );
 
+alter table user_pass drop constraint user_pass_user_id_fkey;
+
+alter table user_pass
+	add constraint user_pass_user_id_fkey
+		foreign key (user_id) references user_account
+			on update cascade on delete cascade;
+
