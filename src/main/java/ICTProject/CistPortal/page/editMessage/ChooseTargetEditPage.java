@@ -43,7 +43,6 @@ public class ChooseTargetEditPage extends TemplatePage {
         //TODO コードの整理
 
         IModel<List<UserIdCheckBox>> userIdListModel = Model.ofList(targetCheckService.getUserIdList(messageId));
-//        IModel<List<ChoseTarget>> choseTargetListModel = Model.ofList(myMessageService.getChoseTarget(messageId));
         var targetMarkupContainer = new WebMarkupContainer("targetMarkupContainer");
         targetMarkupContainer.setOutputMarkupId(true);
         add(targetMarkupContainer);

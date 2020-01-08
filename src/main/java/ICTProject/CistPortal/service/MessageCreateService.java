@@ -1,6 +1,5 @@
 package ICTProject.CistPortal.service;
 
-
 import ICTProject.CistPortal.bean.UserIdCheckBox;
 import ICTProject.CistPortal.repository.IMessageRepository;
 import ICTProject.CistPortal.repository.IMessageTargetRepository;

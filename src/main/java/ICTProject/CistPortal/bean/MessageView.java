@@ -1,12 +1,9 @@
 package ICTProject.CistPortal.bean;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 public class MessageView implements Serializable {

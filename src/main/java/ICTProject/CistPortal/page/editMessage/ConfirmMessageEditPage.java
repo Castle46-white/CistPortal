@@ -1,11 +1,8 @@
 package ICTProject.CistPortal.page.editMessage;
 
 import ICTProject.CistPortal.MySession;
-import ICTProject.CistPortal.bean.ChoseTarget;
 import ICTProject.CistPortal.bean.Message;
-import ICTProject.CistPortal.bean.UserIdCheckBox;
 import ICTProject.CistPortal.page.TemplatePage;
-import ICTProject.CistPortal.service.IMessageCreateService;
 import ICTProject.CistPortal.service.IMyMessageService;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.basic.Label;

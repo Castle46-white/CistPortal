@@ -13,7 +13,7 @@ public class MySession extends AbstractAuthenticatedWebSession {
     private String grade;
     private Roles role;
 
-    public MySession (Request request) {
+    public MySession(Request request) {
         super(request);
         role = new Roles();
     }
@@ -27,7 +27,7 @@ public class MySession extends AbstractAuthenticatedWebSession {
         this.grade = userAccount.getGrade();
         try {
             role.add(MyRole.getById(userAccount.getRoleId()).toString());
-        }catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             role.add(null);
         }
     }
@@ -38,9 +38,9 @@ public class MySession extends AbstractAuthenticatedWebSession {
 
     @Override
     public Roles getRoles() {
-        if(isSignedIn()) {
+        if (isSignedIn()) {
             return role;
-        }else{
+        } else {
             return new Roles();
         }
 
@@ -50,8 +50,8 @@ public class MySession extends AbstractAuthenticatedWebSession {
     @Override
     public boolean isSignedIn() {
         return role.hasRole(MyRole.ADMIN.toString()) ||
-               role.hasRole(MyRole.TEACHER.toString()) ||
-               role.hasRole(MyRole.STUDENT.toString());
+                role.hasRole(MyRole.TEACHER.toString()) ||
+                role.hasRole(MyRole.STUDENT.toString());
     }
 
     public String getUserId() {

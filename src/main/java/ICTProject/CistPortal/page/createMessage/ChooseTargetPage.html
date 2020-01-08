@@ -2,17 +2,13 @@
 <html xmlns:wicket="http://wicket.apache.org">
 <wicket:head>
     <meta charset="UTF-8">
-
     <wicket:link>
         <link rel="stylesheet" href="webjars/bootstrap/4.4.1/css/bootstrap.min.css"
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
               crossorigin="anonymous"/>
         <link href="../css/dashboard.css" rel="stylesheet">
     </wicket:link>
-
     <script src="webjars/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-
 </wicket:head>
 
 <body>
@@ -51,7 +47,7 @@
                         <div class="card-header">選択済み</div>
                         <div class="card-body">
                             <wicket:container wicket:id="targetMarkupContainer">
-                                <div  class="targetLV" wicket:id="targetListView">
+                                <div class="targetLV" wicket:id="targetListView">
                                     <div wicket:id="targetUserId"></div>
                                 </div>
                             </wicket:container>
@@ -65,24 +61,22 @@
                     <a class="btn btn-sm btn-outline-secondary" wicket:id="toMessageConfirmPage">次へ</a>
                 </div>
             </div>
-
         </main>
-
-
     </div>
-
 </div>
 <div wicket:id="footerPanel">footer</div>
 
 
-
-
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="/docs/4.4/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-<script src="dashboard.js"></script></body>
+<script src="dashboard.js"></script>
+</body>
 </html>
 

@@ -6,7 +6,6 @@ import org.apache.wicket.authroles.authorization.strategies.role.annotations.Aut
 import org.apache.wicket.markup.html.link.BookmarkablePageLink;
 import org.wicketstuff.annotation.mount.MountPath;
 
-
 @AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
 @MountPath("MessageDeleteCompPage")
 public class MessageDeleteCompPage extends TemplatePage {

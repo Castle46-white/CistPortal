@@ -1,16 +1,12 @@
 package ICTProject.CistPortal.page.sign;
 
-import ICTProject.CistPortal.page.HomePage;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.ICsvToStringsService;
 import ICTProject.CistPortal.service.IUserService;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.*;
 import org.apache.wicket.markup.html.form.upload.FileUpload;
 import org.apache.wicket.markup.html.form.upload.FileUploadField;
-import org.apache.wicket.markup.html.link.BookmarkablePageLink;
-import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
@@ -155,8 +151,5 @@ public class UserMakePage extends TemplatePage {
         });
 
         userInfoFile.add(fileField);
-
-//        Link<Void> toHomeLink = new BookmarkablePageLink<Void>("toHome", HomePage.class);
-//        add(toHomeLink);
     }
 }

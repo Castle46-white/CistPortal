@@ -4,7 +4,6 @@ import ICTProject.CistPortal.MySession;
 import ICTProject.CistPortal.page.panel.*;
 import org.apache.wicket.markup.html.WebPage;
 
-
 public class TemplatePage extends WebPage {
 
     public TemplatePage() {

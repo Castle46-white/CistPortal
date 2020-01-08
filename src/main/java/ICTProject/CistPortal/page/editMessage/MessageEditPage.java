@@ -20,12 +20,10 @@ import org.wicketstuff.datetime.StyleDateConverter;
 import org.wicketstuff.datetime.extensions.yui.calendar.DatePicker;
 import org.wicketstuff.datetime.markup.html.form.DateTextField;
 
-
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
 
 @AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
 @MountPath("MessageEdit")

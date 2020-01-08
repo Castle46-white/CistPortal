@@ -2,14 +2,11 @@ package ICTProject.CistPortal.repository;
 
 import ICTProject.CistPortal.bean.ChoseTarget;
 import ICTProject.CistPortal.bean.UserIdCheckBox;
-import org.apache.wicket.markup.html.form.CheckGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.SingleColumnRowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository

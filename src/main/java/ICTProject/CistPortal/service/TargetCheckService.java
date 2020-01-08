@@ -3,14 +3,10 @@ package ICTProject.CistPortal.service;
 import ICTProject.CistPortal.bean.ChoseTarget;
 import ICTProject.CistPortal.bean.UserIdCheckBox;
 import ICTProject.CistPortal.repository.IMessageTargetRepository;
-import org.apache.commons.collections4.ListUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 @Service
 public class TargetCheckService implements ITargetCheckService {

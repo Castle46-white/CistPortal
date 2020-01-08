@@ -60,7 +60,5 @@ public class SignPage extends WebPage {
             }
         };
         userInfoForm.add(userPassField);
-
-
     }
 }

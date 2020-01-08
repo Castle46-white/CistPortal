@@ -1,15 +1,10 @@
 package ICTProject.CistPortal.bean;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-
 
 @Data
 @AllArgsConstructor

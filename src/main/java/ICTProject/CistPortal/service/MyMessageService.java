@@ -1,17 +1,14 @@
 package ICTProject.CistPortal.service;
 
-
 import ICTProject.CistPortal.bean.ChoseTarget;
 import ICTProject.CistPortal.bean.MessageEdit;
 import ICTProject.CistPortal.bean.MessageView;
-import ICTProject.CistPortal.bean.UserIdCheckBox;
 import ICTProject.CistPortal.repository.IMessageTargetRepository;
 import ICTProject.CistPortal.repository.IMyMessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

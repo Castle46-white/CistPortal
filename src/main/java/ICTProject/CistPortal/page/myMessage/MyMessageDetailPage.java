@@ -1,6 +1,5 @@
 package ICTProject.CistPortal.page.myMessage;
 
-
 import ICTProject.CistPortal.bean.MessageView;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.page.editMessage.MessageEditPage;
