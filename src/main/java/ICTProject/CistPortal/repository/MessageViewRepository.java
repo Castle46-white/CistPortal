@@ -50,7 +50,7 @@ public class MessageViewRepository implements IMessageViewRepository {
     }
 
     @Override
-    public List<MessageView> selectOne(int messageId) {
+    public List<MessageView> selectOne(long messageId) {
         var sql = "select * from message where id = ?";
 
         var messageViewDetail = jdbcTemplate.query(sql,
@@ -63,7 +63,7 @@ public class MessageViewRepository implements IMessageViewRepository {
 
     //TODO このエラー処理でいいのか？
     @Override
-    public int insertOne(int id, String userId) {
+    public int insertOne(long id, String userId) {
         var sql = "insert into already_read values (?,?)";
 
         try {

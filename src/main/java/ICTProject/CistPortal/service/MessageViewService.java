@@ -31,13 +31,13 @@ public class MessageViewService implements IMessageViewService{
     }
 
     @Override
-    public MessageView selectOne(int messageId) {
+    public MessageView selectOne(long messageId) {
         var messageViewDetail = iMessageViewRepository.selectOne(messageId);
         return messageViewDetail.get(0);
     }
 
     @Override
-    public int insertOne(int id,String userId) {
+    public int insertOne(long id,String userId) {
         var result = iMessageViewRepository.insertOne(id,userId);
         return result;
     }

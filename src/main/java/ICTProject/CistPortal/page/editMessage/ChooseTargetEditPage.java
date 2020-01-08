@@ -1,9 +1,12 @@
-package ICTProject.CistPortal.page.createMessage;
+package ICTProject.CistPortal.page.editMessage;
 
+import ICTProject.CistPortal.bean.ChoseTarget;
 import ICTProject.CistPortal.bean.Message;
 import ICTProject.CistPortal.bean.UserIdCheckBox;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IMessageCreateService;
+import ICTProject.CistPortal.service.IMyMessageService;
+import ICTProject.CistPortal.service.TargetCheckService;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.form.AjaxCheckBox;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
@@ -22,23 +25,32 @@ import java.util.List;
 
 
 @AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
-@MountPath("ChooseTarget")
-public class ChooseTargetPage extends TemplatePage {
+@MountPath("ChooseTargetEdit")
+public class ChooseTargetEditPage extends TemplatePage {
 
     @SpringBean
     private IMessageCreateService messageCreateService;
 
-    public ChooseTargetPage(IModel<Message> messageModel) {
+    @SpringBean
+    private IMyMessageService myMessageService;
+
+    @SpringBean
+    private TargetCheckService targetCheckService;
+
+    public ChooseTargetEditPage(long messageId,IModel<Message> messageModel) {
         super();
 
         //TODO コードの整理
 
-        IModel<List<UserIdCheckBox>> userIdListModel = Model.ofList(messageCreateService.getUserIdList());
+        IModel<List<UserIdCheckBox>> userIdListModel = Model.ofList(targetCheckService.getUserIdList(messageId));
+//        IModel<List<ChoseTarget>> choseTargetListModel = Model.ofList(myMessageService.getChoseTarget(messageId));
         var targetMarkupContainer = new WebMarkupContainer("targetMarkupContainer");
         targetMarkupContainer.setOutputMarkupId(true);
         add(targetMarkupContainer);
         var targetUserIdList = new ArrayList<String>();
-        IModel<Boolean> booleModel = Model.of();
+        for (ChoseTarget choseTarget : myMessageService.getChoseTarget(messageId)) {
+            targetUserIdList.add(choseTarget.getUserId());
+        }
         IModel<List<String>> targetUserIdListModel = Model.ofList(targetUserIdList);
 
 
@@ -49,6 +61,7 @@ public class ChooseTargetPage extends TemplatePage {
                 IModel<String> userIdModel = Model.of(listItem.getModelObject().getId());
                 Label userIdLabel = new Label("userId", userIdModel);
                 listItem.add(userIdLabel);
+                IModel<Boolean> booleModel = Model.of(listItem.getModelObject().isTarget());
 
                 listItem.getModelObject().setCheckBox(new AjaxCheckBox("userIdCheckBox", booleModel) {
                     @Override
@@ -85,7 +98,7 @@ public class ChooseTargetPage extends TemplatePage {
             @Override
             public void onClick() {
                 if(targetUserIdListModel.getObject().size() >= 1) {
-                    setResponsePage(new ConfirmMessagePage(messageModel,targetUserIdListModel));
+                    setResponsePage(new ConfirmMessageEditPage(messageModel,targetUserIdListModel,messageId));
                 }else {
                     error("１人以上の相手を選択してください。");
                 }

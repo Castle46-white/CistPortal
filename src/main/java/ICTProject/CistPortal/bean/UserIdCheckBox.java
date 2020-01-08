@@ -13,5 +13,6 @@ public class UserIdCheckBox implements Serializable {
 
     private String id;
     private AjaxCheckBox checkBox;
+    private boolean target;
 
 }

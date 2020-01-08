@@ -10,12 +10,11 @@ import java.util.Date;
 
 @Data
 public class MessageView implements Serializable {
-    private int id;
+    private long id;
     private String title;
     private String contents;
     private LocalDateTime deadLine;
     private LocalDateTime updateDate;
     private String userId;
-
 
 }

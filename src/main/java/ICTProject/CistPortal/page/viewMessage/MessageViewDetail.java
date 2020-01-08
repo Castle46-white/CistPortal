@@ -26,7 +26,7 @@ public class MessageViewDetail extends TemplatePage {
 
     }
 
-    MessageViewDetail(int id,String userId){
+    MessageViewDetail(long id,String userId){
         super();
         int result = iMessageViewService.insertOne(id,userId);
         result = iMessageViewService.updateRead(id,userId);
@@ -49,7 +49,7 @@ public class MessageViewDetail extends TemplatePage {
 
     }
 
-    MessageViewDetail(int id){
+    MessageViewDetail(long id){
         IModel<MessageView> messageViewIModel = Model.of(iMessageViewService.selectOne(id));
         Label messageViewTitle = new Label("title", messageViewIModel.getObject().getTitle());
         add(messageViewTitle);

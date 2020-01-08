@@ -25,7 +25,7 @@
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">連絡詳細</h1>
+                <h1 class="h2">連絡作成</h1>
                 <!--<div class="btn-toolbar mb-2 mb-md-0">-->
                 <!--<div class="btn-group mr-2">-->
                 <!--<button type="button" class="btn btn-sm btn-outline-secondary" onclick="history.back()">戻る</button>-->
@@ -35,29 +35,34 @@
             </div>
 
             <div class="container">
-                <div class="card">
-                    <div class="card-header" wicket:id="title">タイトル</div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label class="control-label">内容</label>
-                            <textarea readonly class="form-control disabled" rows="15" wicket:id="message"></textarea>
+                <div class="card-group">
+                    <div class="card">
+                        <div class="card-header">連絡相手選択</div>
+                        <div class="card-body">
+                            <div class="userIdLV">
+                                <div wicket:id="userIdLV">
+                                    <input type="checkbox" wicket:id="userIdCheckBox"/>
+                                    <span wicket:id="userId"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">掲示期限</label>
-                            <p class="form-control" wicket:id="deadLine"></p>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">更新日時</label>
-                            <p class="form-control" wicket:id="updateDate"></p>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">選択済み</div>
+                        <div class="card-body">
+                            <wicket:container wicket:id="targetMarkupContainer">
+                                <div  class="targetLV" wicket:id="targetListView">
+                                    <div wicket:id="targetUserId"></div>
+                                </div>
+                            </wicket:container>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="btn-toolbar mb-2 mb-md-0 float-right">
                 <div class="btn-group mr-2">
-                    <a type="button" class="btn btn-sm btn-outline-secondary" wicket:id="toMessageViewListPage">戻る</a>
-                    <a type="button" class="btn btn-sm btn-outline-danger" wicket:id="deleteMessageLink">削除</a>
-                    <a type="button" class="btn btn-sm btn-outline-danger" wicket:id="editMessageLink">編集</a>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="history.back()">戻る</button>
+                    <a class="btn btn-sm btn-outline-secondary" wicket:id="toMessageConfirmPage">次へ</a>
                 </div>
             </div>
 
@@ -70,10 +75,13 @@
 <div wicket:id="footerPanel">footer</div>
 
 
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-<script src="dashboard.js"></script>
-</body>
+<script src="dashboard.js"></script></body>
 </html>

@@ -3,6 +3,7 @@ package ICTProject.CistPortal.page.myMessage;
 
 import ICTProject.CistPortal.bean.MessageView;
 import ICTProject.CistPortal.page.TemplatePage;
+import ICTProject.CistPortal.page.editMessage.MessageEditPage;
 import ICTProject.CistPortal.page.viewMessage.MessageViewListPage;
 import ICTProject.CistPortal.service.IMessageViewService;
 import ICTProject.CistPortal.service.IMyMessageService;
@@ -27,7 +28,7 @@ public class MyMessageDetailPage extends TemplatePage {
     private IMessageViewService iMessageViewService;
 
 
-    MyMessageDetailPage(int id){
+    MyMessageDetailPage(long id){
         IModel<MessageView> messageViewIModel = Model.of(iMessageViewService.selectOne(id));
         Label messageViewTitle = new Label("title", messageViewIModel.getObject().getTitle());
         add(messageViewTitle);
@@ -50,6 +51,13 @@ public class MyMessageDetailPage extends TemplatePage {
             public void onClick() {
                 myMessageService.deleteMessage(id);
                 setResponsePage(new MessageDeleteCompPage());
+            }
+        });
+
+        add(new Link<>("editMessageLink") {
+            @Override
+            public void onClick() {
+                setResponsePage(new MessageEditPage(id));
             }
         });
 

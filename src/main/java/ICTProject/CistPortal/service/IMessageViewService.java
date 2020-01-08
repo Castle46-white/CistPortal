@@ -10,9 +10,9 @@ public interface IMessageViewService {
 
     public List<MessageView> alreadyReadSelectMany(String userId,Timestamp dateTime);
 
-    public MessageView selectOne(int messageId);
+    public MessageView selectOne(long messageId);
 
-    public int insertOne(int messageId,String userId);
+    public int insertOne(long messageId,String userId);
 
     public int updateRead(long messageId,String userId);
 

@@ -1,8 +1,10 @@
-package ICTProject.CistPortal.page.createMessage;
+package ICTProject.CistPortal.page.editMessage;
 
 import ICTProject.CistPortal.bean.Message;
+import ICTProject.CistPortal.bean.MessageEdit;
 import ICTProject.CistPortal.page.TemplatePage;
 import ICTProject.CistPortal.service.IDateTimeFormatService;
+import ICTProject.CistPortal.service.IMyMessageService;
 import org.apache.wicket.authroles.authorization.strategies.role.annotations.AuthorizeInstantiation;
 import org.apache.wicket.markup.html.form.DropDownChoice;
 import org.apache.wicket.markup.html.form.Form;
@@ -26,24 +28,26 @@ import java.util.List;
 
 
 @AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
-@MountPath("MessageCreate")
-public class MessageCreatePage extends TemplatePage {
+@MountPath("MessageEdit")
+public class MessageEditPage extends TemplatePage {
 
     @SpringBean
     private IDateTimeFormatService dateTimeFormatService;
+    @SpringBean
+    private IMyMessageService myMessageService;
 
-    public MessageCreatePage() {
+    public MessageEditPage(long messageId) {
         super();
 
-
+        IModel<MessageEdit> editMessageModel = Model.of(myMessageService.getEditMessageList(messageId));
 
         //TODO バリデーションの追加
 
-        IModel<String> messageTitleModel = Model.of("");
-        IModel<String> messageContentsModel = Model.of("");
-        IModel<Date> deadlineModel = new Model<Date>(new Date());
-        IModel<Integer> hourModel = Model.of();
-        IModel<Integer> minuteModel = Model.of();
+        IModel<String> messageTitleModel = Model.of(editMessageModel.getObject().getTitle());
+        IModel<String> messageContentsModel = Model.of(editMessageModel.getObject().getContents());
+        IModel<Date> deadlineModel = Model.of(editMessageModel.getObject().getDeadLine());
+        IModel<Integer> hourModel = Model.of(editMessageModel.getObject().getDeadLine().toLocalDateTime().toLocalTime().getHour());
+        IModel<Integer> minuteModel = Model.of(editMessageModel.getObject().getDeadLine().toLocalDateTime().toLocalTime().getMinute());
         ;
 
         Form<Void> messageForm = new Form<>("massageForm") {
@@ -65,7 +69,7 @@ public class MessageCreatePage extends TemplatePage {
                     return;
                 }
 
-                setResponsePage(new ChooseTargetPage(messageModel));
+                setResponsePage(new ChooseTargetEditPage(messageId,messageModel));
             }
         };
         add(messageForm);

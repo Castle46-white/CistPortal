@@ -1,4 +1,4 @@
-package ICTProject.CistPortal.page.createMessage;
+package ICTProject.CistPortal.page.editMessage;
 
 import ICTProject.CistPortal.page.HomePage;
 import ICTProject.CistPortal.page.TemplatePage;
@@ -8,10 +8,10 @@ import org.wicketstuff.annotation.mount.MountPath;
 
 
 @AuthorizeInstantiation({"ADMIN" , "TEACHER" , "STUDENT"})
-@MountPath("MessageCreatePage")
-public class MessageCreateCompPage extends TemplatePage {
+@MountPath("MessageEditPage")
+public class MessageEditCompPage extends TemplatePage {
 
-    public MessageCreateCompPage() {
+    public MessageEditCompPage() {
         super();
 
         add(new BookmarkablePageLink<Void>("toHomePage", HomePage.class));

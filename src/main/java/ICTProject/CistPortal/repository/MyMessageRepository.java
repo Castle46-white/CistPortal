@@ -1,9 +1,11 @@
 package ICTProject.CistPortal.repository;
 
+import ICTProject.CistPortal.bean.MessageEdit;
 import ICTProject.CistPortal.bean.MessageView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SingleColumnRowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
@@ -35,4 +37,24 @@ public class MyMessageRepository implements IMyMessageRepository {
         var sql = "insert into deleted_message values (?)";
         return jdbc.update(sql,messageId);
     }
+
+    @Override
+    public List<MessageEdit> editMessage(long messageId) {
+        var sql = "select * from message where id = ?";
+        var editMessageList = jdbc.query(sql,new BeanPropertyRowMapper<>(MessageEdit.class),new Object[]{messageId});
+        return editMessageList;
+    }
+
+    @Override
+    public int updateMessageInfo(String title, String contents, Timestamp deadline,Timestamp updateDate,String userId, long messageId) {
+        String sql = "update message set title=?, contents=?, deadline=?, update_date=? where id=?";
+        return jdbc.update(sql,title,contents,deadline,updateDate,messageId);
+    }
+
+    @Override
+    public int deleteTarget(long messageId) {
+        String sql = "delete from message_target where message_id=?";
+        return jdbc.update(sql,messageId);
+    }
+
 }
