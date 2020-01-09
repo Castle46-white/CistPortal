@@ -17,10 +17,6 @@ public class TargetCheckService implements ITargetCheckService {
     @Override
     public List<UserIdCheckBox> getUserIdList(long messageId) {
         List<UserIdCheckBox> list1 = messageTargetRepository.selectUserId();
-        for (UserIdCheckBox userIdCheckBox : list1) {
-            System.out.println(userIdCheckBox.getId());
-        }
-
         List<ChoseTarget> list2 = messageTargetRepository.choseTarget(messageId);
         for (UserIdCheckBox userIdCheckBox : list1) {
             for (ChoseTarget choseTarget : list2) {
