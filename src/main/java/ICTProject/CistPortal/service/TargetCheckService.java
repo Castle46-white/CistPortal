@@ -22,11 +22,7 @@ public class TargetCheckService implements ITargetCheckService {
         }
 
         List<ChoseTarget> list2 = messageTargetRepository.choseTarget(messageId);
-        for (ChoseTarget choseTarget : list2) {
-            System.out.println(choseTarget.getUserId());
-        }
-
-            for (UserIdCheckBox userIdCheckBox : list1) {
+        for (UserIdCheckBox userIdCheckBox : list1) {
             for (ChoseTarget choseTarget : list2) {
                 if (userIdCheckBox.getId().equals(choseTarget.getUserId())) {
                     userIdCheckBox.setTarget(true);
@@ -36,7 +32,6 @@ public class TargetCheckService implements ITargetCheckService {
                 }
             }
         }
-
         return list1;
     }
 }
