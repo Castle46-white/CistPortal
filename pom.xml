@@ -73,36 +73,12 @@
 			<version>3.4.1</version>
 		</dependency>
 
-		<!--calendar関係-->
-		<dependency>
-			<groupId>com.googlecode.wicket-jquery-ui</groupId>
-			<artifactId>wicket-jquery-ui</artifactId>
-			<version>8.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.wicket-jquery-ui</groupId>
-			<artifactId>wicket-jquery-ui-core</artifactId>
-			<version>8.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.wicket-jquery-ui</groupId>
-			<artifactId>wicket-jquery-ui-calendar</artifactId>
-			<version>8.6.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.googlecode.wicket-jquery-ui</groupId>
-			<artifactId>wicket-jquery-ui-plugins</artifactId>
-			<version>8.6.0</version>
-		</dependency>
-
-
-
 	</dependencies>
 
 	<build>
-		<finalName>
-			${project.artifactId}-${maven.build.timestamp}
-		</finalName>
+<!--		<finalName>-->
+<!--			${project.artifactId}-${maven.build.timestamp}-->
+<!--		</finalName>-->
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -113,18 +89,10 @@
 					</executable>
 				</configuration>
 			</plugin>
-<!--			<plugin>-->
-<!--				<groupId>org.apache.maven.plugins</groupId>-->
-<!--				<artifactId>maven-war-plugin</artifactId>-->
-<!--				<version>3.2.3</version>-->
-<!--				<configuration>-->
-<!--					<archive>-->
-<!--						<manifest>-->
-<!--							<mainClass>ICTProject.CistPortal.CistPortalApplication</mainClass>-->
-<!--						</manifest>-->
-<!--					</archive>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.1.0</version>
+			</plugin>
 		</plugins>
 		<resources>
 			<resource>
