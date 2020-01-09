@@ -34,8 +34,7 @@ public class TargetCheckService implements ITargetCheckService {
                 } else {
                     userIdCheckBox.setTarget(false);
                 }
-
-            }System.out.println(userIdCheckBox.isTarget());
+            }
         }
 
         return list1;
