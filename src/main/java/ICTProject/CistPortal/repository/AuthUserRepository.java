@@ -10,7 +10,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class AuthUserRepository implements IAuthUserRepository {
+public class
+AuthUserRepository implements IAuthUserRepository {
     private JdbcTemplate jdbc;
 
     @Autowired

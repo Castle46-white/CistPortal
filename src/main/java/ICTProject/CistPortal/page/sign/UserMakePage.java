@@ -64,9 +64,7 @@ public class UserMakePage extends TemplatePage {
                         + ","
                         + grade
                         + ","
-                        + role
-                        + ","
-                        + userPass;
+                        + role;
                 System.out.println(msg);
                 userService.registerUser(userId,lastName,firstName,grade,role,userPass);
                 setResponsePage(new UserMakedPage(userIdModel,
